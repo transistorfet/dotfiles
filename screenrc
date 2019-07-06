@@ -1,0 +1,10 @@
+# Run everything in UTF-8.
+defutf8 on
+
+defscrollback 10000
+
+#hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W}%c %{g}]'
+
+# Enable non-blocking mode to better cope with flaky ssh connections.
+defnonblock on 

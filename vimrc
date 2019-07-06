@@ -19,6 +19,15 @@ set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set number              " show line numbers
 
+" Enable persistent undo so that undo history persists across vim sessions
+set undofile
+set undodir=~/.vim/undo
+
+"set ignorecase
+"set smartcase          " if search is lowercase, ignorecase, otherwise case-sensitive
+
+"set switchbuf+=usetab,newtab    " Open a file in existing tab if already open, otherwise new tab
+
 
 " Switch syntax highlighting on, when the terminal has colors or the gui is running
 if &t_Co > 2 || has("gui_running")
@@ -157,4 +166,23 @@ function! EnableSyntastic()
     let g:syntastic_javascript_eslint_exe = 'eslint'
 endfunction
 command ES call EnableSyntastic()
+
+
+function! EnableLineLength()
+    " Highlight lines that are too long, and trailing spaces
+    hi LineOverflow  ctermfg=white ctermbg=red guifg=white guibg=#FF2270
+    hi TrailingSpaces  ctermfg=white ctermbg=red guifg=white guibg=#FF2270
+    if !exists('w:m1') | let w:m1=matchadd('LineOverflow','\%>120v.\+', -1) | endif
+    if !exists('w:m2') | let w:m2=matchadd('TrailingSpaces','\s\+$', -1) | endif
+    "augroup highlight
+    "  autocmd!
+    "  " Highlight lines longer than 120 chars
+    "  autocmd BufEnter,VimEnter,FileType *.rb,*.coffee,*.js,*.jsx,*.ex,*.exs,*.elm
+    "      \ if !exists('w:m1') | let w:m1=matchadd('LineOverflow','\%>120v.\+', -1) | endif
+    "  " Highlight trailing spaces
+    "  autocmd BufEnter,VimEnter,FileType *.rb,*.coffee,*.js,*.jsx,*.ex,*.exs,*.elm
+    "      \ if !exists('w:m2') | let w:m2=matchadd('TrailingSpaces','\s\+$', -1) | endif
+    "augroup END
+endfunction
+command ELL call EnableLineLength()
 

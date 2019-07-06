@@ -6,3 +6,10 @@ qa q @a		record changes as 'a'
 ^O		back buffer
 ^N		autocomplete
 
+
+
+:MundoToggle 	Undo History Visualization
+:Gdiff		Git Diff
+:ES		Enable Syntastic
+:ELL		Enable Line Length and Trailing Spaces Highlighting
+
