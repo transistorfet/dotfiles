@@ -1,0 +1,388 @@
+# i3 config file (v4)
+#
+# Please see http://i3wm.org/docs/userguide.html for a complete reference!
+#
+# This config file uses keycodes (bindsym) and was written for the QWERTY
+# layout.
+#
+# To get a config file with the same key positions, but for your current
+# layout, use the i3-config-wizard
+#
+
+exec nitrogen --restore
+exec xfce4-clipman
+exec /usr/bin/python /usr/bin/deluged --port=58846 --config=/home/trans/.config/deluge
+
+
+#### KEY BINDINGS ####
+
+set $mod Mod1
+set $workmod Mod4
+
+# use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# use these keys for focus, movement, and resize directions when reaching for
+# the arrows is not convenient
+#set $up l
+#set $down k
+#set $left j
+#set $right semicolon
+
+# change focus
+#bindsym $mod+$left focus left
+#bindsym $mod+$down focus down
+#bindsym $mod+$up focus up
+#bindsym $mod+$right focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+#bindsym $mod+Shift+$left move left
+#bindsym $mod+Shift+$down move down
+#bindsym $mod+Shift+$up move up
+#bindsym $mod+Shift+$right move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+Shift+h split h
+
+# split in vertical orientation
+bindsym $mod+Shift+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+u layout stacking
+bindsym $mod+o layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# move the currently focused window to the scratchpad
+bindsym $mod+Shift+minus move scratchpad
+
+# Show the next scratchpad window or hide the focused scratchpad window.
+# If there are multiple scratchpad windows, this command cycles through them.
+bindsym $mod+minus scratchpad show
+
+# Workspace Output Assignments
+workspace 0 output DVI-1
+
+workspace 1 output DVI-0
+workspace 2 output DVI-0
+workspace 3 output DVI-0
+workspace 4 output DVI-0
+workspace 5 output DVI-0
+workspace 6 output DVI-0
+workspace 7 output DVI-0
+workspace 8 output DVI-0
+workspace 9 output DVI-0
+workspace 10 output DVI-0
+
+workspace 11 output DVI-0
+workspace 12 output DVI-0
+workspace 13 output DVI-0
+workspace 14 output DVI-0
+workspace 15 output DVI-0
+workspace 16 output DVI-0
+workspace 17 output DVI-0
+workspace 18 output DVI-0
+workspace 19 output DVI-0
+workspace 20 output DVI-0
+
+workspace 21 output DisplayPort-0
+workspace 22 output DisplayPort-0
+workspace 23 output DisplayPort-0
+workspace 24 output DisplayPort-0
+workspace 25 output DisplayPort-0
+workspace 26 output DisplayPort-0
+workspace 27 output DisplayPort-0
+workspace 28 output DisplayPort-0
+workspace 29 output DisplayPort-0
+workspace 30 output DisplayPort-0
+
+workspace 31 output DisplayPort-0
+workspace 32 output DisplayPort-0
+workspace 33 output DisplayPort-0
+workspace 34 output DisplayPort-0
+workspace 35 output DisplayPort-0
+workspace 36 output DisplayPort-0
+workspace 37 output DisplayPort-0
+workspace 38 output DisplayPort-0
+workspace 39 output DisplayPort-0
+workspace 40 output DisplayPort-0
+
+
+workspace "00" output DVI-1
+workspace "01" output DVI-0
+workspace "02" output DisplayPort-0
+
+bindsym Ctrl+$mod+grave workspace "00"; workspace "01"; workspace "02"
+bindsym Ctrl+$workmod+grave workspace "00"; workspace "01"; workspace "02"
+
+# switch to workspace
+bindsym $mod+grave workspace 0
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+bindsym $mod+0 workspace 10
+
+bindsym $mod+bracketleft workspace 11
+bindsym $mod+bracketright workspace 12
+
+bindsym Ctrl+$mod+1 workspace 11
+bindsym Ctrl+$mod+2 workspace 12
+bindsym Ctrl+$mod+3 workspace 13
+bindsym Ctrl+$mod+4 workspace 14
+bindsym Ctrl+$mod+5 workspace 15
+bindsym Ctrl+$mod+6 workspace 16
+bindsym Ctrl+$mod+7 workspace 17
+bindsym Ctrl+$mod+8 workspace 18
+bindsym Ctrl+$mod+9 workspace 19
+bindsym Ctrl+$mod+0 workspace 20
+
+bindsym $mod+F1 workspace 21
+bindsym $mod+F2 workspace 22
+bindsym $mod+F3 workspace 23
+bindsym $mod+F4 workspace 24
+bindsym $mod+F5 workspace 25
+bindsym $mod+F6 workspace 26
+bindsym $mod+F7 workspace 27
+bindsym $mod+F8 workspace 28
+bindsym $mod+F9 workspace 29
+bindsym $mod+F10 workspace 30
+
+bindsym $mod+F11 workspace 31
+bindsym $mod+F12 workspace 32
+
+bindsym Ctrl+$mod+F1 workspace 31
+bindsym Ctrl+$mod+F2 workspace 32
+bindsym Ctrl+$mod+F3 workspace 33
+bindsym Ctrl+$mod+F4 workspace 34
+bindsym Ctrl+$mod+F5 workspace 35
+bindsym Ctrl+$mod+F6 workspace 36
+bindsym Ctrl+$mod+F7 workspace 37
+bindsym Ctrl+$mod+F8 workspace 38
+bindsym Ctrl+$mod+F9 workspace 39
+bindsym Ctrl+$mod+F10 workspace 40
+
+# move focused container to workspace
+bindsym $mod+Shift+grave move container to workspace 0
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+7 move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+9 move container to workspace 9
+bindsym $mod+Shift+0 move container to workspace 10
+
+bindsym $mod+Shift+bracketleft move container to workspace 11
+bindsym $mod+Shift+bracketright move container to workspace 12
+
+bindsym Ctrl+$mod+Shift+1 move container to workspace 11
+bindsym Ctrl+$mod+Shift+2 move container to workspace 12
+bindsym Ctrl+$mod+Shift+3 move container to workspace 13
+bindsym Ctrl+$mod+Shift+4 move container to workspace 14
+bindsym Ctrl+$mod+Shift+5 move container to workspace 15
+bindsym Ctrl+$mod+Shift+6 move container to workspace 16
+bindsym Ctrl+$mod+Shift+7 move container to workspace 17
+bindsym Ctrl+$mod+Shift+8 move container to workspace 18
+bindsym Ctrl+$mod+Shift+9 move container to workspace 19
+bindsym Ctrl+$mod+Shift+0 move container to workspace 20
+
+bindsym $mod+Shift+F1 move container to workspace 21
+bindsym $mod+Shift+F2 move container to workspace 22
+bindsym $mod+Shift+F3 move container to workspace 23
+bindsym $mod+Shift+F4 move container to workspace 24
+bindsym $mod+Shift+F5 move container to workspace 25
+bindsym $mod+Shift+F6 move container to workspace 26
+bindsym $mod+Shift+F7 move container to workspace 27
+bindsym $mod+Shift+F8 move container to workspace 28
+bindsym $mod+Shift+F9 move container to workspace 29
+bindsym $mod+Shift+F10 move container to workspace 30
+
+bindsym $mod+Shift+F11 move container to workspace 31
+bindsym $mod+Shift+F12 move container to workspace 32
+
+bindsym Ctrl+$mod+Shift+F1 move container to workspace 31
+bindsym Ctrl+$mod+Shift+F2 move container to workspace 32
+bindsym Ctrl+$mod+Shift+F3 move container to workspace 33
+bindsym Ctrl+$mod+Shift+F4 move container to workspace 34
+bindsym Ctrl+$mod+Shift+F5 move container to workspace 35
+bindsym Ctrl+$mod+Shift+F6 move container to workspace 36
+bindsym Ctrl+$mod+Shift+F7 move container to workspace 37
+bindsym Ctrl+$mod+Shift+F8 move container to workspace 38
+bindsym Ctrl+$mod+Shift+F9 move container to workspace 39
+bindsym Ctrl+$mod+Shift+F10 move container to workspace 40
+
+
+# switch to workspace
+bindsym $workmod+grave workspace 0
+bindsym $workmod+1 workspace 1
+bindsym $workmod+2 workspace 2
+bindsym $workmod+3 workspace 3
+bindsym $workmod+4 workspace 4
+bindsym $workmod+5 workspace 5
+bindsym $workmod+6 workspace 6
+bindsym $workmod+7 workspace 7
+bindsym $workmod+8 workspace 8
+bindsym $workmod+9 workspace 9
+bindsym $workmod+0 workspace 10
+
+bindsym $workmod+F1 workspace 21
+bindsym $workmod+F2 workspace 22
+bindsym $workmod+F3 workspace 23
+bindsym $workmod+F4 workspace 24
+bindsym $workmod+F5 workspace 25
+bindsym $workmod+F6 workspace 26
+bindsym $workmod+F7 workspace 27
+bindsym $workmod+F8 workspace 28
+bindsym $workmod+F9 workspace 29
+bindsym $workmod+F10 workspace 30
+
+# move focused container to workspace
+bindsym $workmod+Shift+grave move container to workspace 0
+bindsym $workmod+Shift+1 move container to workspace 1
+bindsym $workmod+Shift+2 move container to workspace 2
+bindsym $workmod+Shift+3 move container to workspace 3
+bindsym $workmod+Shift+4 move container to workspace 4
+bindsym $workmod+Shift+5 move container to workspace 5
+bindsym $workmod+Shift+6 move container to workspace 6
+bindsym $workmod+Shift+7 move container to workspace 7
+bindsym $workmod+Shift+8 move container to workspace 8
+bindsym $workmod+Shift+9 move container to workspace 9
+bindsym $workmod+Shift+0 move container to workspace 10
+
+bindsym $workmod+Shift+F1 move container to workspace 21
+bindsym $workmod+Shift+F2 move container to workspace 22
+bindsym $workmod+Shift+F3 move container to workspace 23
+bindsym $workmod+Shift+F4 move container to workspace 24
+bindsym $workmod+Shift+F5 move container to workspace 25
+bindsym $workmod+Shift+F6 move container to workspace 26
+bindsym $workmod+Shift+F7 move container to workspace 27
+bindsym $workmod+Shift+F8 move container to workspace 28
+bindsym $workmod+Shift+F9 move container to workspace 29
+bindsym $workmod+Shift+F10 move container to workspace 30
+
+bindsym $workmod+Right workspace next
+bindsym $workmod+Left workspace prev
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        #bindsym $left       resize shrink width 10 px or 10 ppt
+        #bindsym $down       resize grow height 10 px or 10 ppt
+        #bindsym $up         resize shrink height 10 px or 10 ppt
+        #bindsym $right      resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left        resize shrink width 10 px or 10 ppt
+        bindsym Down        resize grow height 10 px or 10 ppt
+        bindsym Up          resize shrink height 10 px or 10 ppt
+        bindsym Right       resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Shift+Return exec firefox
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start dmenu (a program launcher)
+#bindsym $mod+d exec dmenu_run
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+bindsym $mod+m exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+apostrophe exec dmenu_run
+bindsym $mod+comma exec ~/.config/i3/msg.sh
+
+
+
+#### BEHAVIOURS ####
+
+hide_edge_borders vertical
+# Make dolphin copy dialogs floating by default
+for_window [title="Copying*"] floating enable
+for_window [title="Moving*"] floating enable
+for_window [title="Deleting*"] floating enable
+#workspace_auto_back_and_forth yes
+
+#### THEME ####
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+font pango:DejaVu Sans Mono 10
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+    status_command i3status
+    colors {
+        #color class       border  back.   text
+        focused_workspace  #007030 #007030 #ffffff
+        active_workspace   #555555 #555555 #ffffff
+        inactive_workspace #000000 #000000 #888888
+        urgent_workspace   #2f343a #900000 #ffffff
+	#statusline         #00C030
+    }
+    tray_output primary
+}
+
+#colors:                border  backgr. text    indicator
+client.focused          #007030 #007030 #ffffff #00B050
+client.focused_inactive #888888 #2b2b2b #ffffff #484e50
+client.unfocused        #888888 #2b2b2b #ffffff #292d2e
+client.urgent           #900000 #900000 #ffffff #2b2b2b
+

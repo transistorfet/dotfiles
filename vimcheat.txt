@@ -1,0 +1,8 @@
+* and #		search word under cursor
+%		go to matching bracket
+.		repeat last command
+qa q @a		record changes as 'a'
+
+^O		back buffer
+^N		autocomplete
+
