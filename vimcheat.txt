@@ -8,12 +8,23 @@ qa q @a		record changes as 'a'
 ^N		autocomplete
 
 
+^W+ ^W-		increase/decrease screen size by 1
+^W_		maximize current window height
+^W=		equalize window heights
+
+
+^Tab		Next window
+^PgUp ^PgDwn	Next/Previous tab
+gt gT <N>gt	Next/Previous/Numbered tab
+
+
+
 
 :MundoToggle 	Undo History Visualization
 :Gdiff		Git Diff
 :Tlist		Tags List
 :NERDtree	Open file viewer
-<C-P>		Open fuzz file searcher
+^P		Open fuzz file searcher
 :ES		Enable Syntastic
 :ELL		Enable Line Length and Trailing Spaces Highlighting
 

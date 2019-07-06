@@ -171,20 +171,38 @@ command ES call EnableSyntastic()
 
 
 function! EnableLineLength()
-    " Highlight lines that are too long, and trailing spaces
+    " Highlight lines that are too long
     hi LineOverflow  ctermfg=white ctermbg=red guifg=white guibg=#FF2270
-    hi TrailingSpaces  ctermfg=white ctermbg=red guifg=white guibg=#FF2270
-    if !exists('w:m1') | let w:m1=matchadd('LineOverflow','\%>120v.\+', -1) | endif
-    if !exists('w:m2') | let w:m2=matchadd('TrailingSpaces','\s\+$', -1) | endif
-    "augroup highlight
-    "  autocmd!
-    "  " Highlight lines longer than 120 chars
-    "  autocmd BufEnter,VimEnter,FileType *.rb,*.coffee,*.js,*.jsx,*.ex,*.exs,*.elm
-    "      \ if !exists('w:m1') | let w:m1=matchadd('LineOverflow','\%>120v.\+', -1) | endif
-    "  " Highlight trailing spaces
-    "  autocmd BufEnter,VimEnter,FileType *.rb,*.coffee,*.js,*.jsx,*.ex,*.exs,*.elm
-    "      \ if !exists('w:m2') | let w:m2=matchadd('TrailingSpaces','\s\+$', -1) | endif
-    "augroup END
+    if !exists('w:m1')
+        let w:m1=matchadd('LineOverflow','\%>120v.\+', -1)
+    else
+        call matchdelete(w:m1)
+        unlet w:m1
+    endif
 endfunction
-command ELL call EnableLineLength()
+command TLL call ToggleLineLength()
 
+
+function! ToggleTrailingSpace()
+    " Highlight trailing spaces
+    hi TrailingSpaces  ctermfg=white ctermbg=red guifg=white guibg=#FF2270
+    if !exists('w:m2')
+        let w:m2=matchadd('TrailingSpaces','\s\+$', -1)
+    else
+        call matchdelete(w:m2)
+        unlet w:m2
+    endif
+endfunction
+command TTS call ToggleTrailingSpace()
+
+
+" Highlight lines that are too long
+"augroup highlight
+"  autocmd!
+"  " Highlight lines longer than 120 chars
+"  autocmd BufEnter,VimEnter,FileType *.rb,*.coffee,*.js,*.jsx,*.ex,*.exs,*.elm
+"      \ if !exists('w:m1') | let w:m1=matchadd('LineOverflow','\%>120v.\+', -1) | endif
+"  " Highlight trailing spaces
+"  autocmd BufEnter,VimEnter,FileType *.rb,*.coffee,*.js,*.jsx,*.ex,*.exs,*.elm
+"      \ if !exists('w:m2') | let w:m2=matchadd('TrailingSpaces','\s\+$', -1) | endif
+"augroup END
