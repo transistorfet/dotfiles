@@ -12,6 +12,8 @@ qa q @a		record changes as 'a'
 :MundoToggle 	Undo History Visualization
 :Gdiff		Git Diff
 :Tlist		Tags List
+:NERDtree	Open file viewer
+<C-P>		Open fuzz file searcher
 :ES		Enable Syntastic
 :ELL		Enable Line Length and Trailing Spaces Highlighting
 
