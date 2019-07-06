@@ -3,13 +3,15 @@
 .		repeat last command
 qa q @a		record changes as 'a'
 
-^O		back buffer
+^I		forward to buffer/location
+^O		back to previous buffer/location
 ^N		autocomplete
 
 
 
 :MundoToggle 	Undo History Visualization
 :Gdiff		Git Diff
+:Tlist		Tags List
 :ES		Enable Syntastic
 :ELL		Enable Line Length and Trailing Spaces Highlighting
 
