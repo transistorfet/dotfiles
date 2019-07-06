@@ -1,4 +1,7 @@
 
+" Activate the vim package manager, pathogen
+execute pathogen#infect()
+
 set encoding=utf-8
 
 set ff=unix
@@ -18,7 +21,7 @@ set number              " show line numbers
 
 
 " Switch syntax highlighting on, when the terminal has colors or the gui is running
-"if &t_Co > 2 || has("gui_running")
+if &t_Co > 2 || has("gui_running")
     syntax on
     set hlsearch			" highlight search terms
     syntax sync fromstart
@@ -50,7 +53,7 @@ set number              " show line numbers
     endfunction
     command PC call ColorPrev()
     nmap <C-C><C-P> :PC<CR>
-"endif
+endif
 
 
 
@@ -137,4 +140,21 @@ autocmd BufRead,BufNewFile *.pyhtml set syntax=aspperl
 
 " Fix syntax highlighting
 autocmd BufEnter * :syntax sync fromstart
+
+
+function! EnableSyntastic()
+    "set statusline+=%#warningmsg#
+    "set statusline+=%{SyntasticStatuslineFlag()}
+    "set statusline+=%*
+
+    let g:syntastic_always_populate_loc_list = 0
+    let g:syntastic_auto_loc_list = 0
+    let g:syntastic_check_on_open = 0
+    let g:syntastic_check_on_wq = 0
+    let g:syntastic_enable_highlighting = 1
+    let g:syntastic_enable_signs = 1
+    let g:syntastic_javascript_checkers = ['eslint']
+    let g:syntastic_javascript_eslint_exe = 'eslint'
+endfunction
+command ES call EnableSyntastic()
 

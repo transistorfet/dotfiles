@@ -1,6 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/Users/sarinamcfarland/bt-newtestthing/web/src/js/components/Contacts/Import'
-let g:netrw_dirhist_2='/Users/sarinamcfarland/bt-newtestthing/web/src/js/components/Contacts'
-let g:netrw_dirhist_3='/Users/sarinamcfarland/bt-newtestthing/web/src/js/reducers/contacts'
-let g:netrw_dirhist_4='/Users/sarinamcfarland/bt-newtestthing/web/src/js/reducers/contacts/handlers'
