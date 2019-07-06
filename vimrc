@@ -34,11 +34,11 @@ if &t_Co > 2 || has("gui_running")
     syntax on
     set hlsearch			" highlight search terms
     syntax sync fromstart
-    
+
     "color morning
     "color pablo
     "color lodestone
-    
+
     let g:colors = [ 'badwolf', 'darkblue', 'desert', 'elflord', 'evening', 'flattown', 'gentooish', 'gotham', 'greenvision', 'industry', 'jellyx', 'koehler', 'leo', 'lettuce', 'lodestone', 'murphy', 'pablo', 'ron', 'slate', 'Sunburst', 'torte', 'vividchalk' ]
     let g:colors_last = 0
 
@@ -47,7 +47,6 @@ if &t_Co > 2 || has("gui_running")
         execute 'colorscheme ' . get(g:colors, g:colors_last)
     endfunction
     command Random call RandomColor()
-    call RandomColor()
 
     function! ColorNext()
         let g:colors_last = (g:colors_last + 1) % len(g:colors)
@@ -62,6 +61,9 @@ if &t_Co > 2 || has("gui_running")
     endfunction
     command PC call ColorPrev()
     nmap <C-C><C-P> :PC<CR>
+
+    call RandomColor()
+    let g:airline_theme = 'badwolf'
 endif
 
 
