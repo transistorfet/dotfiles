@@ -23,6 +23,8 @@ set number              " show line numbers
 set undofile
 set undodir=~/.vim/undo
 
+set sessionoptions=buffers,curdir,tabpages,winsize,terminal
+
 "set ignorecase
 "set smartcase          " if search is lowercase, ignorecase, otherwise case-sensitive
 
@@ -47,6 +49,7 @@ if &t_Co > 2 || has("gui_running")
         execute 'colorscheme ' . get(g:colors, g:colors_last)
     endfunction
     command Random call RandomColor()
+    nmap <C-C><C-R> :Ra<CR>
 
     function! ColorNext()
         let g:colors_last = (g:colors_last + 1) % len(g:colors)
@@ -64,6 +67,7 @@ if &t_Co > 2 || has("gui_running")
 
     call RandomColor()
     let g:airline_theme = 'badwolf'
+    nmap <C-C><C-S> :AirlineTheme random<CR>
 endif
 
 
@@ -153,21 +157,26 @@ autocmd BufRead,BufNewFile *.pyhtml set syntax=aspperl
 autocmd BufEnter * :syntax sync fromstart
 
 
-function! EnableSyntastic()
-    set statusline+=%#warningmsg#
-    set statusline+=%{SyntasticStatuslineFlag()}
-    set statusline+=%*
+" Sleuth disable auto indent
+let g:did_indent_on = 0
 
-    let g:syntastic_always_populate_loc_list = 1
-    let g:syntastic_auto_loc_list = 1
-    let g:syntastic_check_on_open = 1
-    let g:syntastic_check_on_wq = 1
-    let g:syntastic_enable_highlighting = 1
-    let g:syntastic_enable_signs = 1
-    let g:syntastic_javascript_checkers = ['eslint']
-    let g:syntastic_javascript_eslint_exe = 'eslint'
-endfunction
-command ES call EnableSyntastic()
+
+" Syntastic Settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_mode_map = { 'mode': 'passive' }
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 1
+let g:syntastic_enable_highlighting = 1
+let g:syntastic_enable_signs = 1
+let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exe = 'eslint'
+
+command TS call SyntasticToggleMode()
 
 
 function! EnableLineLength()

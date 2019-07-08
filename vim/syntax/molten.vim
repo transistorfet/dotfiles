@@ -1,11 +1,11 @@
 " Vim syntax file
 " Language:     Molten
-" Filenames:    *.mlt
+" Filenames:    *.mol
 " Maintainers:  Markus Mottl      <markus.mottl@gmail.com>
 "               Karl-Heinz Sylla  <Karl-Heinz.Sylla@gmd.de>
 "               Issac Trotts      <ijtrotts@ucdavis.edu>
 " URL:          http://www.ocaml.info/vim/syntax/ocaml.vim
-" Last Change:  2018 Mar 01 - Modified for Molten
+" Last Change:  2018 Mar 01 - Modified for Molten from Ocaml bindings
 "               2012 May 12 - Added Dominique Pellé's spell checking patch (MM)
 "               2012 Feb 01 - Improved module path highlighting (MM)
 "               2010 Oct 11 - Added highlighting of lnot (MM, thanks to Erick Matsen)
@@ -23,10 +23,7 @@ endif
 syn case match
 
 " Access to the method of an object
-syn match    moltenMethod       "#"
-
-" Script headers highlighted like comments
-syn match    moltenComment   "^//.*" contains=@Spell
+syn match    moltenMethod       "."
 
 " Scripting directives
 syn match    moltenScript "^#\<\(quit\|labels\|warnings\|directory\|cd\|load\|use\|install_printer\|remove_printer\|require\|thread\|trace\|untrace\|untrace_all\|print_depth\|print_length\|camlp4o\)\>"
@@ -42,7 +39,7 @@ syn match    moltenBrackErr   "\]"
 syn match    moltenParenErr   ")"
 syn match    moltenArrErr     "|]"
 
-syn match    moltenCommentErr "\*)"
+syn match    moltenCommentErr "\*/"
 
 syn match    moltenCountErr   "\<downto\>"
 syn match    moltenCountErr   "\<to\>"
@@ -78,7 +75,8 @@ syn region   moltenEncl transparent matchgroup=moltenKeyword start="\[|" matchgr
 
 
 " Comments
-syn region   moltenComment start="(\*" end="\*)" contains=@Spell,moltenComment,moltenTodo
+syn match    moltenComment   "//.*" contains=@Spell
+syn region   moltenComment start="/\*" end="\*/" contains=@Spell,moltenComment,moltenTodo
 syn keyword  moltenTodo contained TODO FIXME XXX NOTE
 
 
@@ -87,9 +85,7 @@ syn region   moltenEnd matchgroup=moltenObject start="\<object\>" matchgroup=mol
 
 
 " Blocks
-if !exists("molten_revised")
-  syn region   moltenEnd matchgroup=moltenKeyword start="\<begin\>" matchgroup=moltenKeyword end="\<end\>" contains=ALLBUT,@moltenContained,moltenEndErr
-endif
+syn region   moltenEnd matchgroup=moltenKeyword start="\<begin\>" matchgroup=moltenKeyword end="\<end\>" contains=ALLBUT,@moltenContained,moltenEndErr
 
 
 " "for"
@@ -150,13 +146,13 @@ syn region   moltenStruct matchgroup=moltenModule start="\<\(module\s\+\)\=struc
 syn region   moltenKeyword start="\<module\>\s*\<type\>\(\s*\<of\>\)\=" matchgroup=moltenModule end="\<\w\(\w\|'\)*\>" contains=moltenComment skipwhite skipempty nextgroup=moltenMTDef
 syn match    moltenMTDef "=\s*\w\(\w\|'\)*\>"hs=s+1,me=s+1 skipwhite skipempty nextgroup=moltenFullMod
 
-syn keyword  moltenKeyword  and as assert class
-syn keyword  moltenKeyword  constraint else
-syn keyword  moltenKeyword  exception external fun
+syn keyword  moltenKeyword  and or assert class
+syn keyword  moltenKeyword  else
+syn keyword  moltenKeyword  external fn
 
-syn keyword  moltenKeyword  in inherit initializer
+syn keyword  moltenKeyword  in extends initializer
 syn keyword  moltenKeyword  land lazy let match
-syn keyword  moltenKeyword  method mutable new of
+syn keyword  moltenKeyword  method mut new of
 syn keyword  moltenKeyword  parser private raise rec
 syn keyword  moltenKeyword  try type
 syn keyword  moltenKeyword  virtual when while with
@@ -234,84 +230,84 @@ syn sync minlines=50
 syn sync maxlines=500
 
 if !exists("molten_revised")
-  syn sync match moltenDoSync      grouphere  moltenDo      "\<do\>"
-  syn sync match moltenDoSync      groupthere moltenDo      "\<done\>"
+  syn sync match moltenDoSync       grouphere  moltenDo      "\<do\>"
+  syn sync match moltenDoSync       groupthere moltenDo      "\<done\>"
 endif
 
 if exists("molten_revised")
-  syn sync match moltenEndSync     grouphere  moltenEnd     "\<\(object\)\>"
+  syn sync match moltenEndSync      grouphere  moltenEnd     "\<\(object\)\>"
 else
-  syn sync match moltenEndSync     grouphere  moltenEnd     "\<\(begin\|object\)\>"
+  syn sync match moltenEndSync      grouphere  moltenEnd     "\<\(begin\|object\)\>"
 endif
 
-syn sync match moltenEndSync     groupthere moltenEnd     "\<end\>"
-syn sync match moltenStructSync  grouphere  moltenStruct  "\<struct\>"
-syn sync match moltenStructSync  groupthere moltenStruct  "\<end\>"
-syn sync match moltenSigSync     grouphere  moltenSig     "\<sig\>"
-syn sync match moltenSigSync     groupthere moltenSig     "\<end\>"
+syn sync match moltenEndSync        groupthere moltenEnd     "\<end\>"
+syn sync match moltenStructSync     grouphere  moltenStruct  "\<struct\>"
+syn sync match moltenStructSync     groupthere moltenStruct  "\<end\>"
+syn sync match moltenSigSync        grouphere  moltenSig     "\<sig\>"
+syn sync match moltenSigSync        groupthere moltenSig     "\<end\>"
 
 " Define the default highlighting.
 " Only when an item doesn't have highlighting yet
 
-hi def link moltenBraceErr	   Error
-hi def link moltenBrackErr	   Error
-hi def link moltenParenErr	   Error
-hi def link moltenArrErr	   Error
+hi def link moltenBraceErr          Error
+hi def link moltenBrackErr          Error
+hi def link moltenParenErr          Error
+hi def link moltenArrErr            Error
 
-hi def link moltenCommentErr   Error
+hi def link moltenCommentErr        Error
 
-hi def link moltenCountErr	   Error
-hi def link moltenDoErr	   Error
-hi def link moltenDoneErr	   Error
-hi def link moltenEndErr	   Error
-hi def link moltenThenErr	   Error
+hi def link moltenCountErr          Error
+hi def link moltenDoErr             Error
+hi def link moltenDoneErr           Error
+hi def link moltenEndErr            Error
+hi def link moltenThenErr           Error
 
-hi def link moltenCharErr	   Error
+hi def link moltenCharErr           Error
 
-hi def link moltenErr	   Error
+hi def link moltenErr               Error
 
-hi def link moltenComment	   Comment
+hi def link moltenComment           Comment
 
-hi def link moltenModPath	   Include
-hi def link moltenObject	   Include
-hi def link moltenModule	   Include
-hi def link moltenModParam1    Include
-hi def link moltenModType	   Include
-hi def link moltenMPRestr3	   Include
-hi def link moltenFullMod	   Include
-hi def link moltenModTypeRestr Include
-hi def link moltenWith	   Include
-hi def link moltenMTDef	   Include
+hi def link moltenModPath           Include
+hi def link moltenObject            Include
+hi def link moltenModule            Include
+hi def link moltenModParam1         Include
+hi def link moltenModType           Include
+hi def link moltenMPRestr3          Include
+hi def link moltenFullMod           Include
+hi def link moltenModTypeRestr      Include
+hi def link moltenWith              Include
+hi def link moltenMTDef             Include
 
-hi def link moltenScript	   Include
+hi def link moltenScript            Include
 
-hi def link moltenConstructor  Constant
+hi def link moltenConstructor       Constant
 
-hi def link moltenVal          Keyword
-hi def link moltenModPreRHS    Keyword
-hi def link moltenMPRestr2	   Keyword
-hi def link moltenKeyword	   Keyword
-hi def link moltenMethod	   Include
-hi def link moltenFunDef	   Keyword
-hi def link moltenRefAssign    Keyword
-hi def link moltenKeyChar	   Keyword
-hi def link moltenAnyVar	   Keyword
-hi def link moltenTopStop	   Keyword
-hi def link moltenOperator	   Keyword
+hi def link moltenVal               Keyword
+hi def link moltenModPreRHS         Keyword
+hi def link moltenMPRestr2          Keyword
+hi def link moltenKeyword           Keyword
+hi def link moltenMethod            Include
+hi def link moltenFunDef            Keyword
+hi def link moltenRefAssign         Keyword
+hi def link moltenKeyChar           Keyword
+hi def link moltenAnyVar            Keyword
+hi def link moltenTopStop           Keyword
+hi def link moltenOperator          Keyword
 
-hi def link moltenBoolean	   Boolean
-hi def link moltenCharacter    Character
-hi def link moltenNumber	   Number
-hi def link moltenFloat	   Float
-hi def link moltenString	   String
+hi def link moltenBoolean           Boolean
+hi def link moltenCharacter         Character
+hi def link moltenNumber            Number
+hi def link moltenFloat             Float
+hi def link moltenString            String
 
-hi def link moltenLabel	   Identifier
+hi def link moltenLabel             Identifier
 
-hi def link moltenType	   Type
+hi def link moltenType              Type
 
-hi def link moltenTodo	   Todo
+hi def link moltenTodo              Todo
 
-hi def link moltenEncl	   Keyword
+hi def link moltenEncl              Keyword
 
 
 let b:current_syntax = "molten"
