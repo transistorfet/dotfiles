@@ -18,6 +18,9 @@ qa q @a		record changes as 'a'
 gt gT <N>gt	Next/Previous/Numbered tab
 
 
+[i		Display the definition of an identifier
+[d		Display the definition of a macro
+
 
 
 :MundoToggle 	Undo History Visualization

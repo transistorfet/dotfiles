@@ -87,29 +87,30 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 # Workspace Output Assignments
-workspace 0 output DVI-1
+workspace 0 output DVI-D-1
+workspace 80 output DVI-D-1
 
-workspace 1 output DVI-0
-workspace 2 output DVI-0
-workspace 3 output DVI-0
-workspace 4 output DVI-0
-workspace 5 output DVI-0
-workspace 6 output DVI-0
-workspace 7 output DVI-0
-workspace 8 output DVI-0
-workspace 9 output DVI-0
-workspace 10 output DVI-0
+workspace 1 output DVI-I-0
+workspace 2 output DVI-I-0
+workspace 3 output DVI-I-0
+workspace 4 output DVI-I-0
+workspace 5 output DVI-I-0
+workspace 6 output DVI-I-0
+workspace 7 output DVI-I-0
+workspace 8 output DVI-I-0
+workspace 9 output DVI-I-0
+workspace 10 output DVI-I-0
 
-workspace 11 output DVI-0
-workspace 12 output DVI-0
-workspace 13 output DVI-0
-workspace 14 output DVI-0
-workspace 15 output DVI-0
-workspace 16 output DVI-0
-workspace 17 output DVI-0
-workspace 18 output DVI-0
-workspace 19 output DVI-0
-workspace 20 output DVI-0
+workspace 11 output DVI-I-0
+workspace 12 output DVI-I-0
+workspace 13 output DVI-I-0
+workspace 14 output DVI-I-0
+workspace 15 output DVI-I-0
+workspace 16 output DVI-I-0
+workspace 17 output DVI-I-0
+workspace 18 output DVI-I-0
+workspace 19 output DVI-I-0
+workspace 20 output DVI-I-0
 
 workspace 21 output DisplayPort-0
 workspace 22 output DisplayPort-0
@@ -134,8 +135,8 @@ workspace 39 output DisplayPort-0
 workspace 40 output DisplayPort-0
 
 
-workspace "00" output DVI-1
-workspace "01" output DVI-0
+workspace "00" output DVI-D-1
+workspace "01" output DVI-I-0
 workspace "02" output DisplayPort-0
 
 bindsym Ctrl+$mod+grave workspace "00"; workspace "01"; workspace "02"
@@ -153,9 +154,9 @@ bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
 bindsym $mod+0 workspace 10
-
 bindsym $mod+bracketleft workspace 11
 bindsym $mod+bracketright workspace 12
+bindsym $mod+backslash workspace 80
 
 bindsym Ctrl+$mod+1 workspace 11
 bindsym Ctrl+$mod+2 workspace 12
@@ -178,7 +179,6 @@ bindsym $mod+F7 workspace 27
 bindsym $mod+F8 workspace 28
 bindsym $mod+F9 workspace 29
 bindsym $mod+F10 workspace 30
-
 bindsym $mod+F11 workspace 31
 bindsym $mod+F12 workspace 32
 
@@ -205,9 +205,9 @@ bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
-
 bindsym $mod+Shift+bracketleft move container to workspace 11
 bindsym $mod+Shift+bracketright move container to workspace 12
+bindsym $mod+Shift+backslash move container to workspace 80
 
 bindsym Ctrl+$mod+Shift+1 move container to workspace 11
 bindsym Ctrl+$mod+Shift+2 move container to workspace 12
@@ -230,7 +230,6 @@ bindsym $mod+Shift+F7 move container to workspace 27
 bindsym $mod+Shift+F8 move container to workspace 28
 bindsym $mod+Shift+F9 move container to workspace 29
 bindsym $mod+Shift+F10 move container to workspace 30
-
 bindsym $mod+Shift+F11 move container to workspace 31
 bindsym $mod+Shift+F12 move container to workspace 32
 
@@ -335,17 +334,18 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+Return exec firefox
+bindsym $mod+Shift+plus exec dolphin
 
 # kill focused window
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-#bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
 bindsym $mod+m exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+apostrophe exec dmenu_run
+bindsym $mod+apostrophe exec rofi -show run
 bindsym $mod+comma exec ~/.config/i3/msg.sh
 
 
@@ -361,6 +361,20 @@ for_window [title="Deleting*"] floating enable
 
 #### THEME ####
 
+
+# set primary gruvbox colorscheme colors
+set $bg #282828
+set $bg2 #504945
+set $red #cc241d
+set $green #98971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $gray #a89984
+set $darkgray #1d2021
+
+
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
 font pango:DejaVu Sans Mono 10
@@ -368,21 +382,51 @@ font pango:DejaVu Sans Mono 10
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command i3status
-    colors {
-        #color class       border  back.   text
-        focused_workspace  #007030 #007030 #ffffff
-        active_workspace   #555555 #555555 #ffffff
-        inactive_workspace #000000 #000000 #888888
-        urgent_workspace   #2f343a #900000 #ffffff
-	#statusline         #00C030
-    }
+    font pango:DejaVu Sans Mono 10
+    status_command i3status-rs
     tray_output primary
+    colors {
+        background           $bg
+        statusline           $yellow
+
+        #color class         border    back.     text
+        focused_workspace    $green    $green    $darkgray
+        inactive_workspace   $darkgray $darkgray $yellow
+        active_workspace     $darkgray $darkgray $yellow
+        urgent_workspace     $red      $red      $bg
+    }
 }
 
-#colors:                border  backgr. text    indicator
-client.focused          #007030 #007030 #ffffff #00B050
-client.focused_inactive #888888 #2b2b2b #ffffff #484e50
-client.unfocused        #888888 #2b2b2b #ffffff #292d2e
-client.urgent           #900000 #900000 #ffffff #2b2b2b
+# green gruvbox
+# class                 border     backgr     text       indicator  child_border
+client.focused          $green     $green     $darkgray  $purple    $darkgray
+client.focused_inactive $bg2       $darkgray  $yellow    $purple    $darkgray
+client.unfocused        $bg2       $darkgray  $yellow    $purple    $darkgray
+client.urgent           $red       $red       $white     $red       $red
+
+
+
+### Default Colours
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+#bar {
+#    status_command i3status
+#    tray_output primary
+#    colors {
+#        #color class       border  back.   text
+#        focused_workspace  #007030 #007030 #ffffff
+#        active_workspace   #555555 #555555 #ffffff
+#        inactive_workspace #000000 #000000 #888888
+#        urgent_workspace   #2f343a #900000 #ffffff
+#	#statusline         #00C030
+#    }
+#}
+
+##colors:                border  backgr. text    indicator
+#client.focused          #007030 #007030 #ffffff #00B050
+#client.focused_inactive #888888 #2b2b2b #ffffff #484e50
+#client.unfocused        #888888 #2b2b2b #ffffff #292d2e
+#client.urgent           #900000 #900000 #ffffff #2b2b2b
+
 

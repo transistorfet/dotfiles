@@ -5,7 +5,7 @@
 "               Karl-Heinz Sylla  <Karl-Heinz.Sylla@gmd.de>
 "               Issac Trotts      <ijtrotts@ucdavis.edu>
 " URL:          http://www.ocaml.info/vim/syntax/ocaml.vim
-" Last Change:  2018 Mar 01 - Modified for Molten from Ocaml bindings
+" Last Change:  2018 Mar 01 - Modified for Molten using the Ocaml bindings
 "               2012 May 12 - Added Dominique Pellé's spell checking patch (MM)
 "               2012 Feb 01 - Improved module path highlighting (MM)
 "               2010 Oct 11 - Added highlighting of lnot (MM, thanks to Erick Matsen)
@@ -89,7 +89,7 @@ syn region   moltenEnd matchgroup=moltenKeyword start="\<begin\>" matchgroup=mol
 
 
 " "for"
-syn region   moltenNone matchgroup=moltenKeyword start="\<for\>" matchgroup=moltenKeyword end="\<\(to\|downto\)\>" contains=ALLBUT,@moltenContained,moltenCountErr
+syn region   moltenNone matchgroup=moltenKeyword start="\<for\>" matchgroup=moltenKeyword end="\<in\>" contains=ALLBUT,@moltenContained,moltenCountErr
 
 
 " "do"
@@ -146,29 +146,22 @@ syn region   moltenStruct matchgroup=moltenModule start="\<\(module\s\+\)\=struc
 syn region   moltenKeyword start="\<module\>\s*\<type\>\(\s*\<of\>\)\=" matchgroup=moltenModule end="\<\w\(\w\|'\)*\>" contains=moltenComment skipwhite skipempty nextgroup=moltenMTDef
 syn match    moltenMTDef "=\s*\w\(\w\|'\)*\>"hs=s+1,me=s+1 skipwhite skipempty nextgroup=moltenFullMod
 
-syn keyword  moltenKeyword  and or assert class
+syn keyword  moltenKeyword  and or assert
 syn keyword  moltenKeyword  else
-syn keyword  moltenKeyword  external fn
+syn keyword  moltenKeyword  pub fn decl
 
-syn keyword  moltenKeyword  in extends initializer
-syn keyword  moltenKeyword  land lazy let match
-syn keyword  moltenKeyword  method mut new of
-syn keyword  moltenKeyword  parser private raise rec
-syn keyword  moltenKeyword  try type
-syn keyword  moltenKeyword  virtual when while with
+syn keyword  moltenKeyword  class extends new
+syn keyword  moltenKeyword  let mut match
+syn keyword  moltenKeyword  private type enum
+syn keyword  moltenKeyword  try catch raise
+syn keyword  moltenKeyword  while for in
 
-if exists("molten_revised")
-  syn keyword  moltenKeyword  do value
-  syn keyword  moltenBoolean  True False
-else
-  syn keyword  moltenKeyword  function
-  syn keyword  moltenBoolean  true false
-  syn match    moltenKeyChar  "!"
-endif
+syn keyword  moltenBoolean  true false
+syn match    moltenKeyChar  "!"
 
-syn keyword  moltenType     array bool char exn float format format4
-syn keyword  moltenType     int int32 int64 lazy_t list nativeint option
-syn keyword  moltenType     string unit
+syn keyword  moltenType     List
+syn keyword  moltenType     Bool Int Real
+syn keyword  moltenType     String ()
 
 syn keyword  moltenOperator asr lnot lor lsl lsr lxor mod not
 
@@ -184,7 +177,7 @@ syn match    moltenConstructor  "`\w\(\w\|'\)*\>"
 " Module prefix
 syn match    moltenModPath      "\u\(\w\|'\)* *\."he=e-1
 
-syn match    moltenCharacter    "'\\\d\d\d'\|'\\[\'ntbr]'\|'.'"
+syn match    moltenCharacter    "'\\\d\d\d'\|'\\[\'ntbr0]'\|'.'"
 syn match    moltenCharacter    "'\\x\x\x'"
 syn match    moltenCharErr      "'\\\d\d'\|'\\\d'"
 syn match    moltenCharErr      "'\\[^\'ntbr]'"

@@ -1,0 +1,40 @@
+icons = "awesome"
+
+[theme]
+name = "solarized-dark"
+[theme.overrides]
+idle_fg = "#d79921"
+
+[[block]]
+block = "disk_space"
+path = "/"
+alias = "/"
+info_type = "available"
+unit = "GB"
+interval = 20
+warning = 10.0
+alert = 5.0
+
+[[block]]
+block = "memory"
+display_type = "memory"
+format_mem = "{Mup}%"
+format_swap = "{SUp}%"
+warning_mem = 90
+
+[[block]]
+block = "cpu"
+interval = 2
+
+[[block]]
+block = "load"
+interval = 2
+format = "{1m}"
+
+[[block]]
+block = "sound"
+
+[[block]]
+block = "time"
+interval = 2
+format = "%a %Y-%m-%d %H:%M:%S"

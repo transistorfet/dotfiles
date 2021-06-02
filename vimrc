@@ -23,7 +23,7 @@ set number              " show line numbers
 set undofile
 set undodir=~/.vim/undo
 
-set sessionoptions=buffers,curdir,tabpages,winsize,terminal
+set sessionoptions=buffers,curdir,tabpages,winsize
 
 "set ignorecase
 "set smartcase          " if search is lowercase, ignorecase, otherwise case-sensitive
@@ -41,7 +41,11 @@ if &t_Co > 2 || has("gui_running")
     "color pablo
     "color lodestone
 
-    let g:colors = [ 'badwolf', 'darkblue', 'desert', 'elflord', 'evening', 'flattown', 'gentooish', 'gotham', 'greenvision', 'industry', 'jellyx', 'koehler', 'leo', 'lettuce', 'lodestone', 'murphy', 'pablo', 'ron', 'slate', 'Sunburst', 'torte', 'vividchalk' ]
+    let paths = split(globpath(&runtimepath . ",/usr/share/vim-scripts/color_sampler_pack/", 'colors/*.vim'), "\n")
+    let g:allcolors = map(paths, 'fnamemodify(v:val, ":t:r")')
+
+    let g:favcolors = [ 'badwolf', 'darkblue', 'desert', 'elflord', 'evening', 'flattown', 'gentooish', 'gotham', 'greenvision', 'industry', 'jellyx', 'koehler', 'leo', 'lettuce', 'lodestone', 'murphy', 'pablo', 'ron', 'slate', 'Sunburst', 'torte', 'vividchalk', 'Mustang', 'anokha', 'anotherdark', 'astroboy', 'asu1dark', 'autumnleaf', 'bigbang', 'blacksea', 'bluegreen', 'breeze', 'brookstream', 'calmar256-dark', 'candy', 'candycode', 'clarity', 'colorer', 'dante', 'darkZ', 'darkblue2', 'darkbone', 'darkburn', 'darkslategray', 'darkspectrum', 'dejavu', 'desert256', 'desertEx', 'dusk', 'dw_blue', 'dw_green', 'dw_orange', 'dw_purple', 'dw_red', 'dw_yellow', 'earendel', 'ekvoli', 'fnaqevan', 'freya', 'fruity', 'fu', 'golden', 'guardian', 'herald', 'inkpot', 'jammy', 'jellybeans', 'kellys', 'liquidcarbon', 'manuscript', 'marklar', 'maroloccio', 'masmed', 'matrix', 'metacosm', 'midnight2', 'molokai', 'moss', 'motus', 'navajo-night', 'neon', 'neverness', 'night', 'night_vision', 'nightshimmer', 'no_quarter', 'northland', 'oceanblack', 'oceandeep', 'railscasts', 'rdark', 'relaxedgreen', 'rootwater', 'sea', 'settlemyer', 'softblue', 'sorcerer', 'synic', 'tabula', 'tango', 'tango2', 'tesla', 'tir_black', 'twilight', 'two2tango', 'vibrantink', 'vimhut', 'wombat', 'wuye', 'xoria256', 'zenburn', 'zendnb', 'zmrok' ]
+    let g:colors = g:favcolors
     let g:colors_last = 0
 
     function! RandomColor()
@@ -91,6 +95,7 @@ imap <C-V> <C-R>+
 
 " Use CTRL-Q to do what CTRL-V used to do
 noremap <C-Q> <C-V>
+command! Vb normal! <C-V>
 
 " Use CTRL-S for saving, also in Insert mode
 noremap <C-S> :update<CR>
@@ -106,6 +111,9 @@ cnoremap <C-A> <C-C>gggH<C-O>G
 noremap <C-Tab> <C-W>w
 inoremap <C-Tab> <C-O><C-W>w
 cnoremap <C-Tab> <C-C><C-W>w
+
+" // in Visual mode will search for selected text
+vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
 
 
 """""""""""""""""""""""""
@@ -123,6 +131,10 @@ command PT PythonTabs
 " Use 2 character tabs instead of 8 but expand all tabs to spaces
 command WebTabs set ts=8 sw=2 sts=2 smarttab expandtab
 command WT WebTabs
+
+" Reset to tabs with a tabstop of 8
+command ResetTabs set ts=8 sw=8 sts=0 noexpandtab nosmarttab
+command RT ResetTabs
 
 " Enable word wrap
 command SetWrap set wrap linebreak
@@ -215,3 +227,7 @@ command TTS call ToggleTrailingSpace()
 "  autocmd BufEnter,VimEnter,FileType *.rb,*.coffee,*.js,*.jsx,*.ex,*.exs,*.elm
 "      \ if !exists('w:m2') | let w:m2=matchadd('TrailingSpaces','\s\+$', -1) | endif
 "augroup END
+
+" Enable Powerline fonts in airline
+"set rtp+=/usr/local/lib/python3.7/dist-packages/powerline/bindings/vim/
+"let g:airline_powerline_fonts=1
