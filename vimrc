@@ -2,47 +2,57 @@
 " Activate the vim package manager, pathogen
 execute pathogen#infect()
 
-set encoding=utf-8
-
 set ff=unix
+set encoding=utf-8
 set nowrap
 set nocompatible
 behave xterm
 
-" backspace and cursor keys wrap to previous/next line
-set backspace=indent,eol,start whichwrap+=<,>,[,]
-
-"set backup		" keep a backup file
-set history=50		" keep 50 lines of command line history
+set title               " show filename in the window title
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
+set hlsearch		" highlight search terms
 set number              " show line numbers
 
-" Enable persistent undo so that undo history persists across vim sessions
-set undofile
+set backspace=indent,eol,start whichwrap+=<,>,[,]       " backspace and cursor keys wrap to previous/next line
+
+set history=50		" keep 50 lines of command line history
+set undofile            " enable persistent undo
 set undodir=~/.vim/undo
-
-set sessionoptions=buffers,curdir,tabpages,winsize
-
+"set backup		" keep a backup file
 "set ignorecase
 "set smartcase          " if search is lowercase, ignorecase, otherwise case-sensitive
 
+set sessionoptions=buffers,curdir,tabpages,winsize
+
 "set switchbuf+=usetab,newtab    " Open a file in existing tab if already open, otherwise new tab
+
+let g:asyncomplete_auto_completeopt = 0         " Set completeopt such that it opens a menu, selects the first option, but doesn't automatically insert
+set completeopt=menuone,noinsert
+
+
+"""""""""""
+" Colours "
+"""""""""""
+
+function! ApplyCustomColors()
+    " If the Pmenu background is Magenta, then change it to a more visible color
+    let output = execute('highlight Pmenu')
+    if output =~ '.*Magenta.*'
+        highlight Pmenu ctermbg=darkblue guibg=darkblue
+    endif
+    highlight Error guibg=NONE
+endfunction
 
 
 " Switch syntax highlighting on, when the terminal has colors or the gui is running
 if &t_Co > 2 || has("gui_running")
     syntax on
-    set hlsearch			" highlight search terms
     syntax sync fromstart
 
-    "color morning
-    "color pablo
-    "color lodestone
-
-    let paths = split(globpath(&runtimepath . ",/usr/share/vim-scripts/color_sampler_pack/", 'colors/*.vim'), "\n")
-    let g:allcolors = map(paths, 'fnamemodify(v:val, ":t:r")')
+    let g:allcolors = map(split(globpath(&runtimepath . ",/usr/share/vim-scripts/color_sampler_pack/", 'colors/*.vim'), "\n"), 'fnamemodify(v:val, ":t:r")')
+    let g:allairline = map(split(globpath(&runtimepath, 'bundle/vim-airline-themes/autoload/airline/themes/*.vim'), "\n"), 'fnamemodify(v:val, ":t:r")')
 
     let g:favcolors = [ 'badwolf', 'darkblue', 'desert', 'elflord', 'evening', 'flattown', 'gentooish', 'gotham', 'greenvision', 'industry', 'jellyx', 'koehler', 'leo', 'lettuce', 'lodestone', 'murphy', 'pablo', 'ron', 'slate', 'Sunburst', 'torte', 'vividchalk', 'Mustang', 'anokha', 'anotherdark', 'astroboy', 'asu1dark', 'autumnleaf', 'bigbang', 'blacksea', 'bluegreen', 'breeze', 'brookstream', 'calmar256-dark', 'candy', 'candycode', 'clarity', 'colorer', 'dante', 'darkZ', 'darkblue2', 'darkbone', 'darkburn', 'darkslategray', 'darkspectrum', 'dejavu', 'desert256', 'desertEx', 'dusk', 'dw_blue', 'dw_green', 'dw_orange', 'dw_purple', 'dw_red', 'dw_yellow', 'earendel', 'ekvoli', 'fnaqevan', 'freya', 'fruity', 'fu', 'golden', 'guardian', 'herald', 'inkpot', 'jammy', 'jellybeans', 'kellys', 'liquidcarbon', 'manuscript', 'marklar', 'maroloccio', 'masmed', 'matrix', 'metacosm', 'midnight2', 'molokai', 'moss', 'motus', 'navajo-night', 'neon', 'neverness', 'night', 'night_vision', 'nightshimmer', 'no_quarter', 'northland', 'oceanblack', 'oceandeep', 'railscasts', 'rdark', 'relaxedgreen', 'rootwater', 'sea', 'settlemyer', 'softblue', 'sorcerer', 'synic', 'tabula', 'tango', 'tango2', 'tesla', 'tir_black', 'twilight', 'two2tango', 'vibrantink', 'vimhut', 'wombat', 'wuye', 'xoria256', 'zenburn', 'zendnb', 'zmrok' ]
     let g:colors = g:favcolors
@@ -51,6 +61,7 @@ if &t_Co > 2 || has("gui_running")
     function! RandomColor()
         let g:colors_last = system('echo $RANDOM') % len(g:colors)
         execute 'colorscheme ' . get(g:colors, g:colors_last)
+        call ApplyCustomColors()
     endfunction
     command Random call RandomColor()
     nmap <C-C><C-R> :Ra<CR>
@@ -58,6 +69,7 @@ if &t_Co > 2 || has("gui_running")
     function! ColorNext()
         let g:colors_last = (g:colors_last + 1) % len(g:colors)
         execute 'colorscheme ' . get(g:colors, g:colors_last)
+        call ApplyCustomColors()
     endfunction
     command NC call ColorNext()
     nmap <C-C><C-N> :NC<CR>
@@ -65,12 +77,20 @@ if &t_Co > 2 || has("gui_running")
     function! ColorPrev()
         let g:colors_last = (g:colors_last - 1) % len(g:colors)
         execute 'colorscheme ' . get(g:colors, g:colors_last)
+        call ApplyCustomColors()
     endfunction
     command PC call ColorPrev()
     nmap <C-C><C-P> :PC<CR>
 
+    function! RandomAirline()
+        let g:airline_theme = get(g:allairline, system('echo $RANDOM') % len(g:allairline))
+    endfunction
+    command RA call RandomAirline()
+    nmap <C-C><C-S> :RA<CR>
+
     call RandomColor()
-    let g:airline_theme = 'badwolf'
+    "let g:airline_theme = 'badwolf'
+    call RandomAirline()
     nmap <C-C><C-S> :AirlineTheme random<CR>
 endif
 
@@ -165,30 +185,17 @@ autocmd BufRead,BufNewFile *.js PythonTabs
 " For *.pyhtml files, treat as a HTML file
 autocmd BufRead,BufNewFile *.pyhtml set syntax=aspperl
 
-" Fix syntax highlighting
-autocmd BufEnter * :syntax sync fromstart
+" For *.md and *.txt files, enable spell check
+autocmd BufRead,BufNewFile *.md set spell
+autocmd BufRead,BufNewFile *.txt set spell
 
+
+"""""""""""""""""
+" Miscellaneous "
+"""""""""""""""""
 
 " Sleuth disable auto indent
 let g:did_indent_on = 0
-
-
-" Syntastic Settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_mode_map = { 'mode': 'passive' }
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 1
-let g:syntastic_enable_highlighting = 1
-let g:syntastic_enable_signs = 1
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_javascript_eslint_exe = 'eslint'
-
-command TS call SyntasticToggleMode()
 
 
 function! EnableLineLength()
@@ -217,17 +224,18 @@ endfunction
 command TTS call ToggleTrailingSpace()
 
 
-" Highlight lines that are too long
-"augroup highlight
-"  autocmd!
-"  " Highlight lines longer than 120 chars
-"  autocmd BufEnter,VimEnter,FileType *.rb,*.coffee,*.js,*.jsx,*.ex,*.exs,*.elm
-"      \ if !exists('w:m1') | let w:m1=matchadd('LineOverflow','\%>120v.\+', -1) | endif
-"  " Highlight trailing spaces
-"  autocmd BufEnter,VimEnter,FileType *.rb,*.coffee,*.js,*.jsx,*.ex,*.exs,*.elm
-"      \ if !exists('w:m2') | let w:m2=matchadd('TrailingSpaces','\s\+$', -1) | endif
-"augroup END
-
 " Enable Powerline fonts in airline
 "set rtp+=/usr/local/lib/python3.7/dist-packages/powerline/bindings/vim/
 "let g:airline_powerline_fonts=1
+
+
+"Setup rust-analyzer
+if executable('rust-analyzer')
+  au User lsp_setup call lsp#register_server({
+        \   'name': 'Rust Language Server',
+        \   'cmd': {server_info->['rust-analyzer']},
+        \   'whitelist': ['rust'],
+        \ })
+  set signcolumn=yes
+endif
+

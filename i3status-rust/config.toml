@@ -1,9 +1,10 @@
 icons = "awesome"
 
 [theme]
-name = "solarized-dark"
+name = "gruvbox-dark"
 [theme.overrides]
 idle_fg = "#d79921"
+separator = ""
 
 [[block]]
 block = "disk_space"
@@ -18,8 +19,8 @@ alert = 5.0
 [[block]]
 block = "memory"
 display_type = "memory"
-format_mem = "{Mup}%"
-format_swap = "{SUp}%"
+format_mem = "{mem_used_percents}"
+format_swap = "{swap_used_percents}"
 warning_mem = 90
 
 [[block]]
