@@ -3,3 +3,7 @@
 [user]
 	name = transistor
 	email = trans@jabberwocky.ca
+[pull]
+	ff = only
+[init]
+	defaultBranch = main
