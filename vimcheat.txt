@@ -31,3 +31,20 @@ gt gT <N>gt	Next/Previous/Numbered tab
 :ES		Enable Syntastic
 :ELL		Enable Line Length and Trailing Spaces Highlighting
 
+
+:e scp://remoteuser@server.tld//path/to/document
+		Edit a file locally that's stored on a remote computer (requires SSH login for every save)
+
+
+
+COPY/PASTE
+
+:reg		Display the contents of copy registers
+""p		Paste the contents of the " register, which is the visual select
+"+p		Paste the Ctrl-C/Ctrl-V register
+"*p		Paste the X Select/Middle Mouse register
+
+:set mouse=	When trying to copy from vim through SSH, this will disable terminal mouse except to allow copy/paste (default is mouse=a)
+
+
+

@@ -6,8 +6,10 @@ set ff=unix
 set encoding=utf-8
 set nowrap
 set nocompatible
-"set mouse=a
 behave xterm
+
+set mouse=a
+"set mouse=             " mouse=a interferes with copying through an ssh connection
 
 set title               " show filename in the window title
 set ruler		" show the cursor position all the time
@@ -116,6 +118,7 @@ cmap <C-V> <C-R>+
 imap <C-V> <C-R>+
 
 " Use CTRL-Q to do what CTRL-V used to do
+noremap ; <C-V>
 noremap <C-Q> <C-V>
 command! Vb normal! <C-V>
 
