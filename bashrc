@@ -28,7 +28,7 @@ PROMPT_COMMAND="history -a"
 
 # If set, the pattern "**" used in a pathname expansion context will
 # match all files and zero or more directories and subdirectories.
-#shopt -s globstar
+shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
 #[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -113,6 +113,11 @@ if ! shopt -oq posix; then
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
   fi
+fi
+
+# Disable Ctrl-S/Ctrl-Q Flow Control
+if [ -x /usr/bin/stty ]; then
+  stty -ixon
 fi
 
 . "$HOME/.cargo/env"

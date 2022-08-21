@@ -1,3 +1,8 @@
+
+In Terminal:
+    stty -ixon  In order to disable terminal Ctrl-S/Ctrl-Q
+
+
 * and #		search word under cursor
 %		go to matching bracket
 .		repeat last command
@@ -45,6 +50,7 @@ COPY/PASTE
 "*p		Paste the X Select/Middle Mouse register
 
 :set mouse=	When trying to copy from vim through SSH, this will disable terminal mouse except to allow copy/paste (default is mouse=a)
+:set mouse=a	When using mouse through SSH to set cursor, highlight, and adjust window sizes
 
 
 
