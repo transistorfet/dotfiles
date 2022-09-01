@@ -244,3 +244,5 @@ if executable('rust-analyzer')
   set signcolumn=yes
 endif
 
+command D LspDocumentDiagnostics
+
