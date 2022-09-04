@@ -5,6 +5,8 @@ In Terminal:
 
 * and #		search word under cursor
 %		go to matching bracket
+ci(		change inner brackets (text between matching bracket)
+
 .		repeat last command
 qa q @a		record changes as 'a'
 
@@ -46,7 +48,7 @@ COPY/PASTE
 
 :reg		Display the contents of copy registers
 ""p		Paste the contents of the " register, which is the visual select
-"+p		Paste the Ctrl-C/Ctrl-V register
+"+p		Paste the Ctrl-C/Ctrl-V register (requires xorg support)
 "*p		Paste the X Select/Middle Mouse register
 
 :set mouse=	When trying to copy from vim through SSH, this will disable terminal mouse except to allow copy/paste (default is mouse=a)
