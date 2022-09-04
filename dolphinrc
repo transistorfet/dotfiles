@@ -1,0 +1,30 @@
+[CompactMode]
+FontWeight=50
+
+[Desktop Entry]
+DefaultProfile=WhiteOnBlack.profile
+
+[DetailsMode]
+FontWeight=50
+LeadingPadding=0
+PreviewSize=16
+
+[General]
+GlobalViewProps=true
+RememberOpenedTabs=false
+Version=201
+
+[IconsMode]
+FontWeight=50
+
+[KFileDialog Settings]
+Places Icons Auto-resize=false
+Places Icons Static Size=22
+
+[MainWindow]
+MenuBar=Disabled
+ToolBarsMovable=Disabled
+
+[Open-with settings]
+CompletionMode=1
+History=gvim,ghex,okteta
