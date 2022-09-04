@@ -1,2 +1,0 @@
-konsolerc goes in .config/
-share/WhiteOnBlack.profile goes in .local/share/konsole/

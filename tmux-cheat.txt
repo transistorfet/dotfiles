@@ -1,0 +1,24 @@
+
+Tmux Commands:
+
+    set mouse on/off	    Copying through the terminal with middle mouse click doesn't work with mouse on
+
+
+Tmux Key Bindings:
+
+    C-a 0-9		    Switch to a specific window (starts at 0)
+    C-a :		    Enter a command
+
+
+
+
+
+Screen Key Bindings:
+    
+
+
+Keys Only In Screen Only:
+
+    C-a a		    Switches to the last window
+
+
