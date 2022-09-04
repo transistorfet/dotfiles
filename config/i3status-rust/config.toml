@@ -8,6 +8,9 @@ idle_fg = "#d79921"
 separator = ""
 
 [[block]]
+block = "sound"
+
+[[block]]
 block = "disk_space"
 path = "/"
 info_type = "available"
@@ -25,7 +28,7 @@ warning_mem = 90
 [[block]]
 block = "nvidia_gpu"
 interval = 2
-format = "$utilization $temperature"
+format = "$utilization"
 
 [[block]]
 block = "cpu"
@@ -33,18 +36,9 @@ interval = 2
 format = "$utilization"
 
 [[block]]
-block = "temperature"
-collapsed = false
-format = "$average"
-interval = 2
-
-[[block]]
 block = "load"
 interval = 2
 format = "$1m"
-
-[[block]]
-block = "sound"
 
 [[block]]
 block = "time"
