@@ -8,3 +8,7 @@ hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u
 
 # Enable non-blocking mode to better cope with flaky ssh connections.
 defnonblock on 
+
+# Enable mouse
+termcapinfo xterm* ti@:te@
+

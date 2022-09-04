@@ -1,0 +1,14 @@
+ 
+FOR BOTH:
+
+C-a 0-9		Switch to a specific window (starts at 0)
+
+
+
+
+
+SCREEN ONLY:
+
+C-a a		Switches to the last window
+
+

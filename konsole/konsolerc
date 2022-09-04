@@ -1,0 +1,11 @@
+StatusBar=Disabled
+
+[Desktop Entry]
+DefaultProfile=WhiteOnBlack.profile
+
+[MainWindow]
+StatusBar=Disabled
+ToolBarsMovable=Disabled
+
+[UiSettings]
+ColorScheme=
