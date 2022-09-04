@@ -1,9 +1,12 @@
 
+
+* add links to references to the cheat sheets
 * should you set focus follows mouse for vim, or tmux if that's possible
 
 
 
 VIM:
+    * need something for scrolling horizontally
     * need an alternative to Ctrl-S for save, because it conflicts in the terminal/over ssh
 
     Alternate Plugins:
