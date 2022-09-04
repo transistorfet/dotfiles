@@ -19,7 +19,7 @@ set backspace=indent,eol,start whichwrap+=<,>,[,]       " backspace and cursor k
 
 set history=100		" lines of command line history to keep
 set undofile            " enable persistent undo
-set undodir=~/.vim/undo
+set undodir=~/.vimundo
 "set backup		" keep a backup file
 "set smartcase          " if search is lowercase, ignorecase, otherwise case-sensitive
 

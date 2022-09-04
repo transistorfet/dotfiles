@@ -4,8 +4,13 @@
 * should you set focus follows mouse for vim, or tmux if that's possible
 
 
+TMUX:
+    * need to figure out how to copy and paste through ssh with mouse on
+    * there are some copy/paste commands that might be useful with iTerm2
+
 
 VIM:
+    * move undo dir somewhere else
     * need something for scrolling horizontally
     * need an alternative to Ctrl-S for save, because it conflicts in the terminal/over ssh
 

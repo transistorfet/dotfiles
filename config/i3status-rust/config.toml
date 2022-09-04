@@ -36,11 +36,6 @@ interval = 2
 format = "$utilization"
 
 [[block]]
-block = "load"
-interval = 2
-format = "$1m"
-
-[[block]]
 block = "time"
 interval = 2
 format = "%a %Y-%m-%d %H:%M:%S"
