@@ -8,9 +8,6 @@ set nowrap
 set nocompatible
 behave xterm
 
-set mouse=a
-"set mouse=             " mouse=a interferes with copying through an ssh connection
-
 set title               " show filename in the window title
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
@@ -20,12 +17,15 @@ set number              " show line numbers
 
 set backspace=indent,eol,start whichwrap+=<,>,[,]       " backspace and cursor keys wrap to previous/next line
 
-set history=50		" keep 50 lines of command line history
+set history=100		" lines of command line history to keep
 set undofile            " enable persistent undo
 set undodir=~/.vim/undo
 "set backup		" keep a backup file
-"set ignorecase
 "set smartcase          " if search is lowercase, ignorecase, otherwise case-sensitive
+
+set mouse=a             " enable mouse in all modes
+"set mouse=             " mouse=a interferes with copying through an ssh connection
+set ttymouse=xterm2     " hack for tmux to fix mouse movements in vim through tmux
 
 set sessionoptions=buffers,curdir,tabpages,winsize
 
