@@ -24,7 +24,6 @@ set undodir=~/.vimundo
 "set smartcase          " if search is lowercase, ignorecase, otherwise case-sensitive
 
 set mouse=a             " enable mouse in all modes
-"set mouse=             " mouse=a interferes with copying through an ssh connection
 set ttymouse=xterm2     " hack for tmux to fix mouse movements in vim through tmux
 
 set sessionoptions=buffers,curdir,tabpages,winsize
@@ -98,6 +97,34 @@ if &t_Co > 2 || has("gui_running")
     nmap <C-C><C-S> :AirlineTheme random<CR>
 endif
 
+"""""""""""""
+" Functions "
+"""""""""""""
+
+function! ToggleLineLength()
+    " Highlight lines that are too long
+    hi LineOverflow  ctermfg=white ctermbg=red guifg=white guibg=#FF2270
+    if !exists('w:m1')
+        let w:m1=matchadd('LineOverflow','\%>120v.\+', -1)
+    else
+        call matchdelete(w:m1)
+        unlet w:m1
+    endif
+endfunction
+command TLL call ToggleLineLength()
+
+
+function! ToggleTrailingSpace()
+    " Highlight trailing spaces
+    hi TrailingSpaces  ctermfg=white ctermbg=red guifg=white guibg=#FF2270
+    if !exists('w:m2')
+        let w:m2=matchadd('TrailingSpaces','\s\+$', -1)
+    else
+        call matchdelete(w:m2)
+        unlet w:m2
+    endif
+endfunction
+command TTS call ToggleTrailingSpace()
 
 
 """"""""""""""""
@@ -108,13 +135,13 @@ endif
 map <C-ScrollWheelDown> 20zl
 map <C-ScrollWheelUp> 20zh
 " Right
-map <S-Right> 20zl
-vmap <S-Right> 20zl
-imap <S-Right> <C-O>20zl
+map <S-Right> 40zl
+vmap <S-Right> 40zl
+imap <S-Right> <C-O>40zl
 " Left
-map <S-Left> 20zh
-vmap <S-Left> 20zh
-imap <S-Left> <C-O>20zh
+map <S-Left> 40zh
+vmap <S-Left> 40zh
+imap <S-Left> <C-O>40zh
 
 " Set Copy/Cut/Paste keys depending on if the clipboard is present
 if has('clipboard')
@@ -231,32 +258,6 @@ autocmd BufRead,BufNewFile *.md set spell
 
 " Sleuth disable auto indent
 let g:did_indent_on = 0
-
-
-function! ToggleLineLength()
-    " Highlight lines that are too long
-    hi LineOverflow  ctermfg=white ctermbg=red guifg=white guibg=#FF2270
-    if !exists('w:m1')
-        let w:m1=matchadd('LineOverflow','\%>120v.\+', -1)
-    else
-        call matchdelete(w:m1)
-        unlet w:m1
-    endif
-endfunction
-command TLL call ToggleLineLength()
-
-
-function! ToggleTrailingSpace()
-    " Highlight trailing spaces
-    hi TrailingSpaces  ctermfg=white ctermbg=red guifg=white guibg=#FF2270
-    if !exists('w:m2')
-        let w:m2=matchadd('TrailingSpaces','\s\+$', -1)
-    else
-        call matchdelete(w:m2)
-        unlet w:m2
-    endif
-endfunction
-command TTS call ToggleTrailingSpace()
 
 
 " Enable Powerline fonts in airline
