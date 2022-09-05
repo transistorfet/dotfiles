@@ -13,6 +13,7 @@ TMUX:
 VIM:
     * need to think about scrolling a bit more depending on how it works on Mac/iTerm2 (should shift or ctrl activate horizontal
       scrolling, and what should the vertical scroll behaviour be with the same modified?)
+    * should the amount be larger for the arrow keys (like 40)? particularly for console over ssh which is a bit slow to scroll
 
     * can you set focus follows mouse in vim or is that only for gui?
 

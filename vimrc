@@ -109,12 +109,12 @@ map <C-ScrollWheelDown> 20zl
 map <C-ScrollWheelUp> 20zh
 " Right
 map <S-Right> 20zl
+vmap <S-Right> 20zl
 imap <S-Right> <C-O>20zl
-vmap <S-Right> <C-O>20zl
 " Left
 map <S-Left> 20zh
+vmap <S-Left> 20zh
 imap <S-Left> <C-O>20zh
-vmap <S-Left> <C-O>20zh
 
 " Set Copy/Cut/Paste keys depending on if the clipboard is present
 if has('clipboard')
