@@ -104,25 +104,55 @@ endif
 " Key Bindings "
 """"""""""""""""
 
-" CTRL-C and CTRL-Insert are Copy
-vnoremap <C-C> "+y
-vnoremap <C-Insert> "+y
+" Horizontal Scrolling
+map <C-ScrollWheelDown> 20zl
+map <C-ScrollWheelUp> 20zh
+" Right
+map <S-Right> 20zl
+imap <S-Right> <C-O>20zl
+vmap <S-Right> <C-O>20zl
+" Left
+map <S-Left> 20zh
+imap <S-Left> <C-O>20zh
+vmap <S-Left> <C-O>20zh
 
-" CTRL-X and SHIFT-Del are Cut
-vnoremap <C-X> "+x
-vnoremap <S-Del> "+x
+" Set Copy/Cut/Paste keys depending on if the clipboard is present
+if has('clipboard')
+    " Copy
+    vnoremap <C-C> "+y
+    vnoremap <C-Insert> "+y
 
-" CTRL-V and SHIFT-Insert are Paste
-map <C-V> "+gP
-cmap <C-V> <C-R>+
-imap <C-V> <C-R>+
+    " Cut
+    vnoremap <C-X> "+x
+    vnoremap <S-Del> "+x
 
-" Use CTRL-Q to do what CTRL-V used to do
+    " Paste
+    map <C-V> "+gP
+    cmap <C-V> <C-R>+
+    imap <C-V> <C-R>+
+else
+    " If the X clipboard is not present, then the + register wont exist, so use the z register instead
+
+    " Copy
+    vnoremap <C-C> "zy
+    vnoremap <C-Insert> "zy
+
+    " Cut
+    vnoremap <C-X> "zx
+    vnoremap <S-Del> "zx
+
+    " Paste
+    map <C-V> "zgP
+    cmap <C-V> <C-R>z
+    imap <C-V> <C-R>z
+endif
+
+" Remap Visual Block command (which was CTRL-V)
 noremap ; <C-V>
 noremap <C-Q> <C-V>
 command! Vb normal! <C-V>
 
-" Use CTRL-S for saving, also in Insert mode
+" Use CTRL-S for saving
 noremap <C-S> :update<CR>
 vnoremap <C-S> <C-C>:update<CR>
 inoremap <C-S> <C-O>:update<CR>

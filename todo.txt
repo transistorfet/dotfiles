@@ -2,6 +2,8 @@
 
 * add links to references to the cheat sheets
 
+* i sort of have work arounds for copy/paste, except copying text from vim through tmux through ssh into the host clipboard
+
 
 TMUX:
     * need to figure out how to copy and paste through ssh with mouse on
@@ -9,13 +11,15 @@ TMUX:
 
 
 VIM:
-    * need something for scrolling horizontally
+    * need to think about scrolling a bit more depending on how it works on Mac/iTerm2 (should shift or ctrl activate horizontal
+      scrolling, and what should the vertical scroll behaviour be with the same modified?)
+
     * can you set focus follows mouse in vim or is that only for gui?
 
     Alternate Plugins:
-	* should you use fzf instead of Ctrl-P
-	* lightline instead of airline?
-	* undotree instead of mundo?
+        * should you use fzf instead of Ctrl-P
+        * lightline instead of airline?
+        * undotree instead of mundo?
 
 NEOVIM:
     * GuiScrollBar needs to be properly activated

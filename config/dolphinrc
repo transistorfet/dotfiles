@@ -13,6 +13,7 @@ PreviewSize=16
 GlobalViewProps=true
 RememberOpenedTabs=false
 Version=201
+ViewPropsTimestamp=2021,10,4,16,16,22
 
 [IconsMode]
 FontWeight=50
@@ -21,6 +22,10 @@ FontWeight=50
 Places Icons Auto-resize=false
 Places Icons Static Size=22
 
+[KPropertiesDialog]
+DP-0 DP-2 DP-4 Height 1920x1080=603
+DP-0 DP-2 DP-4 Width 1920x1080=431
+
 [MainWindow]
 MenuBar=Disabled
 ToolBarsMovable=Disabled
@@ -28,3 +33,6 @@ ToolBarsMovable=Disabled
 [Open-with settings]
 CompletionMode=1
 History=gvim,ghex,okteta
+
+[PreviewSettings]
+Plugins=audiothumbnail,comicbookthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,fontthumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,opendocumentthumbnail,svgthumbnail,webarchivethumbnail
