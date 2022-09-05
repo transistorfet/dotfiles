@@ -1,7 +1,6 @@
 
 
 * add links to references to the cheat sheets
-* should you set focus follows mouse for vim, or tmux if that's possible
 
 
 TMUX:
@@ -10,9 +9,8 @@ TMUX:
 
 
 VIM:
-    * move undo dir somewhere else
     * need something for scrolling horizontally
-    * need an alternative to Ctrl-S for save, because it conflicts in the terminal/over ssh
+    * can you set focus follows mouse in vim or is that only for gui?
 
     Alternate Plugins:
 	* should you use fzf instead of Ctrl-P
