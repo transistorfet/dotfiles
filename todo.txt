@@ -1,16 +1,14 @@
 
-
 * add links to references to the cheat sheets
-
-* i sort of have work arounds for copy/paste, except copying text from vim through tmux through ssh into the host clipboard
 
 
 TMUX:
-    * need to figure out how to copy and paste through ssh with mouse on
-    * there are some copy/paste commands that might be useful with iTerm2
+    * need to adjust so it works with tmux 3.0a
+    * learn the extra copy paste commands
 
 
 VIM:
+    * if you open a txt file, then "spell" is enabled for all files
     * need to think about scrolling a bit more depending on how it works on Mac/iTerm2 (should shift or ctrl activate horizontal
       scrolling, and what should the vertical scroll behaviour be with the same modified?)
 
