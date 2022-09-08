@@ -1,15 +1,15 @@
+[submodule "vim/bundle/asyncomplete-lsp.vim"]
+	path = vim/bundle/asyncomplete-lsp.vim
+	url = https://github.com/prabirshrestha/asyncomplete-lsp.vim.git
+[submodule "vim/bundle/asyncomplete-tags.vim"]
+	path = vim/bundle/asyncomplete-tags.vim
+	url = https://github.com/prabirshrestha/asyncomplete-tags.vim.git
+[submodule "vim/bundle/asyncomplete.vim"]
+	path = vim/bundle/asyncomplete.vim
+	url = https://github.com/prabirshrestha/asyncomplete.vim.git
 [submodule "vim/bundle/nerdtree"]
 	path = vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree.git
-[submodule "vim/bundle/asyncomplete-lsp.vim"]
-	path = vim/bundle/asyncomplete-lsp.vim
-	url = git@github.com:prabirshrestha/asyncomplete-lsp.vim.git
-[submodule "vim/bundle/asyncomplete-tags.vim"]
-	path = vim/bundle/asyncomplete-tags.vim
-	url = git@github.com:prabirshrestha/asyncomplete-tags.vim.git
-[submodule "vim/bundle/asyncomplete.vim"]
-	path = vim/bundle/asyncomplete.vim
-	url = git@github.com:prabirshrestha/asyncomplete.vim.git
 [submodule "vim/bundle/vim-airline"]
 	path = vim/bundle/vim-airline
 	url = https://github.com/vim-airline/vim-airline
@@ -21,7 +21,7 @@
 	url = https://github.com/tpope/vim-fugitive.git
 [submodule "vim/bundle/vim-lsp"]
 	path = vim/bundle/vim-lsp
-	url = git@github.com:prabirshrestha/vim-lsp.git
+	url = https://github.com/prabirshrestha/vim-lsp.git
 [submodule "vim/bundle/vim-mundo"]
 	path = vim/bundle/vim-mundo
 	url = https://github.com/simnalamburt/vim-mundo
