@@ -194,6 +194,9 @@ noremap <C-Tab> <C-W>w
 inoremap <C-Tab> <C-O><C-W>w
 cnoremap <C-Tab> <C-C><C-W>w
 
+" Maximize Current Window
+map <C-W><C-M> <C-W>_
+
 " // in Visual mode will search for selected text
 vnoremap // y/\V<C-r>=escape(@",'/\')<CR><CR>
 
