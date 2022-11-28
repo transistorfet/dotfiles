@@ -14,6 +14,8 @@ set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 set hlsearch		" highlight search terms
 set number              " show line numbers
+set showtabline=1	" only show tab bar if more than one tab
+set laststatus=2	" always show the status bar
 
 set backspace=indent,eol,start whichwrap+=<,>,[,]       " backspace and cursor keys wrap to previous/next line
 

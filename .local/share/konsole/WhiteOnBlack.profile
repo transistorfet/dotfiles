@@ -13,4 +13,4 @@ MouseWheelZoomEnabled=false
 
 [Scrolling]
 HistoryMode=1
-HistorySize=100000
+HistorySize=500000
