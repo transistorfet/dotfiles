@@ -305,3 +305,6 @@ augroup END
 
 command D LspDocumentDiagnostics
 
+if !empty(glob("~/.vimrc.local"))
+    source ~/.vimrc.local
+endif
