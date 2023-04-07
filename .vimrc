@@ -1,11 +1,12 @@
 
+set nocompatible
+
 " Activate the vim package manager, pathogen
 execute pathogen#infect()
 
 set ff=unix
 set encoding=utf-8
 set nowrap
-set nocompatible
 behave xterm
 
 set title               " show filename in the window title

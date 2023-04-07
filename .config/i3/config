@@ -16,11 +16,11 @@ exec /usr/bin/python /usr/bin/deluged --port=58846 --config=/home/trans/.config/
 
 #### KEY BINDINGS ####
 
-set $mod Mod1
-set $workmod Mod4
+set $Alt Mod1
+set $Monster Mod4
 
-# use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+# use Mouse+$Alt to drag floating windows to their wanted position
+floating_modifier $Alt
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
@@ -30,61 +30,65 @@ floating_modifier $mod
 #set $right semicolon
 
 # change focus
-#bindsym $mod+$left focus left
-#bindsym $mod+$down focus down
-#bindsym $mod+$up focus up
-#bindsym $mod+$right focus right
+#bindsym $Alt+$left focus left
+#bindsym $Alt+$down focus down
+#bindsym $Alt+$up focus up
+#bindsym $Alt+$right focus right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Left focus left
-bindsym $mod+Down focus down
-bindsym $mod+Up focus up
-bindsym $mod+Right focus right
+bindsym $Alt+Left focus left
+bindsym $Alt+Down focus down
+bindsym $Alt+Up focus up
+bindsym $Alt+Right focus right
 
 # move focused window
-#bindsym $mod+Shift+$left move left
-#bindsym $mod+Shift+$down move down
-#bindsym $mod+Shift+$up move up
-#bindsym $mod+Shift+$right move right
+#bindsym $Alt+Shift+$left move left
+#bindsym $Alt+Shift+$down move down
+#bindsym $Alt+Shift+$up move up
+#bindsym $Alt+Shift+$right move right
 
 # alternatively, you can use the cursor keys:
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
+bindsym $Alt+Shift+Left move left
+bindsym $Alt+Shift+Down move down
+bindsym $Alt+Shift+Up move up
+bindsym $Alt+Shift+Right move right
+
+# move between workspaces
+bindsym $Monster+Right workspace next
+bindsym $Monster+Left workspace prev
 
 # split in horizontal orientation
-bindsym $mod+Shift+h split h
+bindsym $Alt+Shift+h split h
 
 # split in vertical orientation
-bindsym $mod+Shift+v split v
+bindsym $Alt+Shift+v split v
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen
+bindsym $Alt+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+u layout stacking
-bindsym $mod+o layout tabbed
-bindsym $mod+e layout toggle split
+bindsym $Alt+u layout stacking
+bindsym $Alt+o layout tabbed
+bindsym $Alt+e layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+Shift+space floating toggle
+bindsym $Alt+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+bindsym $Alt+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+bindsym $Alt+a focus parent
 
 # focus the child container
-#bindsym $mod+d focus child
+#bindsym $Alt+d focus child
 
 # move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
+bindsym $Alt+Shift+minus move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+minus scratchpad show
+bindsym $Alt+minus scratchpad show
 
 # Workspace Output Assignments
 workspace 0 output DP-4
@@ -100,201 +104,166 @@ workspace 7 output DP-0
 workspace 8 output DP-0
 workspace 9 output DP-0
 workspace 10 output DP-0
-
 workspace 11 output DP-0
 workspace 12 output DP-0
-workspace 13 output DP-0
-workspace 14 output DP-0
-workspace 15 output DP-0
-workspace 16 output DP-0
-workspace 17 output DP-0
-workspace 18 output DP-0
-workspace 19 output DP-0
-workspace 20 output DP-0
 
-workspace 21 output DP-2
-workspace 22 output DP-2
-workspace 23 output DP-2
-workspace 24 output DP-2
-workspace 25 output DP-2
-workspace 26 output DP-2
-workspace 27 output DP-2
-workspace 28 output DP-2
-workspace 29 output DP-2
-workspace 30 output DP-2
+workspace 21 output DP-0
+workspace 22 output DP-0
+workspace 23 output DP-0
+workspace 24 output DP-0
+workspace 25 output DP-0
+workspace 26 output DP-0
+workspace 27 output DP-0
+workspace 28 output DP-0
+workspace 29 output DP-0
+workspace 30 output DP-0
+workspace 31 output DP-0
+workspace 32 output DP-0
 
-workspace 31 output DP-2
-workspace 32 output DP-2
-workspace 33 output DP-2
-workspace 34 output DP-2
-workspace 35 output DP-2
-workspace 36 output DP-2
-workspace 37 output DP-2
-workspace 38 output DP-2
-workspace 39 output DP-2
-workspace 40 output DP-2
+workspace 41 output DP-2
+workspace 42 output DP-2
+workspace 43 output DP-2
+workspace 44 output DP-2
+workspace 45 output DP-2
+workspace 46 output DP-2
+workspace 47 output DP-2
+workspace 48 output DP-2
+workspace 49 output DP-2
+workspace 50 output DP-2
+workspace 51 output DP-2
+workspace 52 output DP-2
+
+workspace 61 output DP-2
+workspace 62 output DP-2
+workspace 63 output DP-2
+workspace 64 output DP-2
+workspace 65 output DP-2
+workspace 66 output DP-2
+workspace 67 output DP-2
+workspace 68 output DP-2
+workspace 69 output DP-2
+workspace 70 output DP-2
+workspace 71 output DP-2
+workspace 72 output DP-2
 
 workspace "00" output DP-4 
 workspace "01" output DP-0
 workspace "02" output DP-2
 
 
-bindsym Ctrl+$mod+grave workspace "00"; workspace "01"; workspace "02"
-bindsym Ctrl+$workmod+grave workspace "00"; workspace "01"; workspace "02"
+bindsym Ctrl+$Alt+grave workspace "00"; workspace "01"; workspace "02"
+bindsym Ctrl+$Monster+grave workspace "00"; workspace "01"; workspace "02"
 
 # switch to workspace
-bindsym $mod+grave workspace 0
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
-bindsym $mod+bracketleft workspace 11
-bindsym $mod+bracketright workspace 12
-bindsym $mod+backslash workspace 80
+bindsym $Alt+grave workspace 0
+bindsym $Alt+1 workspace 1
+bindsym $Alt+2 workspace 2
+bindsym $Alt+3 workspace 3
+bindsym $Alt+4 workspace 4
+bindsym $Alt+5 workspace 5
+bindsym $Alt+6 workspace 6
+bindsym $Alt+7 workspace 7
+bindsym $Alt+8 workspace 8
+bindsym $Alt+9 workspace 9
+bindsym $Alt+0 workspace 10
+bindsym $Alt+bracketleft workspace 11
+bindsym $Alt+bracketright workspace 12
+bindsym $Alt+backslash workspace 80
 
-bindsym Ctrl+$mod+1 workspace 11
-bindsym Ctrl+$mod+2 workspace 12
-bindsym Ctrl+$mod+3 workspace 13
-bindsym Ctrl+$mod+4 workspace 14
-bindsym Ctrl+$mod+5 workspace 15
-bindsym Ctrl+$mod+6 workspace 16
-bindsym Ctrl+$mod+7 workspace 17
-bindsym Ctrl+$mod+8 workspace 18
-bindsym Ctrl+$mod+9 workspace 19
-bindsym Ctrl+$mod+0 workspace 20
+bindsym $Monster+1 workspace 21
+bindsym $Monster+2 workspace 22
+bindsym $Monster+3 workspace 23
+bindsym $Monster+4 workspace 24
+bindsym $Monster+5 workspace 25
+bindsym $Monster+6 workspace 26
+bindsym $Monster+7 workspace 27
+bindsym $Monster+8 workspace 28
+bindsym $Monster+9 workspace 29
+bindsym $Monster+0 workspace 30
+bindsym $Monster+bracketleft workspace 31
+bindsym $Monster+bracketright workspace 32
 
-bindsym $mod+F1 workspace 21
-bindsym $mod+F2 workspace 22
-bindsym $mod+F3 workspace 23
-bindsym $mod+F4 workspace 24
-bindsym $mod+F5 workspace 25
-bindsym $mod+F6 workspace 26
-bindsym $mod+F7 workspace 27
-bindsym $mod+F8 workspace 28
-bindsym $mod+F9 workspace 29
-bindsym $mod+F10 workspace 30
-bindsym $mod+F11 workspace 31
-bindsym $mod+F12 workspace 32
+bindsym $Alt+F1 workspace 41
+bindsym $Alt+F2 workspace 42
+bindsym $Alt+F3 workspace 43
+bindsym $Alt+F4 workspace 44
+bindsym $Alt+F5 workspace 45
+bindsym $Alt+F6 workspace 46
+bindsym $Alt+F7 workspace 47
+bindsym $Alt+F8 workspace 48
+bindsym $Alt+F9 workspace 49
+bindsym $Alt+F10 workspace 50
+bindsym $Alt+F11 workspace 51
+bindsym $Alt+F12 workspace 52
 
-bindsym Ctrl+$mod+F1 workspace 31
-bindsym Ctrl+$mod+F2 workspace 32
-bindsym Ctrl+$mod+F3 workspace 33
-bindsym Ctrl+$mod+F4 workspace 34
-bindsym Ctrl+$mod+F5 workspace 35
-bindsym Ctrl+$mod+F6 workspace 36
-bindsym Ctrl+$mod+F7 workspace 37
-bindsym Ctrl+$mod+F8 workspace 38
-bindsym Ctrl+$mod+F9 workspace 39
-bindsym Ctrl+$mod+F10 workspace 40
-
-# move focused container to workspace
-bindsym $mod+Shift+grave move container to workspace 0
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
-bindsym $mod+Shift+bracketleft move container to workspace 11
-bindsym $mod+Shift+bracketright move container to workspace 12
-bindsym $mod+Shift+backslash move container to workspace 80
-
-bindsym Ctrl+$mod+Shift+1 move container to workspace 11
-bindsym Ctrl+$mod+Shift+2 move container to workspace 12
-bindsym Ctrl+$mod+Shift+3 move container to workspace 13
-bindsym Ctrl+$mod+Shift+4 move container to workspace 14
-bindsym Ctrl+$mod+Shift+5 move container to workspace 15
-bindsym Ctrl+$mod+Shift+6 move container to workspace 16
-bindsym Ctrl+$mod+Shift+7 move container to workspace 17
-bindsym Ctrl+$mod+Shift+8 move container to workspace 18
-bindsym Ctrl+$mod+Shift+9 move container to workspace 19
-bindsym Ctrl+$mod+Shift+0 move container to workspace 20
-
-bindsym $mod+Shift+F1 move container to workspace 21
-bindsym $mod+Shift+F2 move container to workspace 22
-bindsym $mod+Shift+F3 move container to workspace 23
-bindsym $mod+Shift+F4 move container to workspace 24
-bindsym $mod+Shift+F5 move container to workspace 25
-bindsym $mod+Shift+F6 move container to workspace 26
-bindsym $mod+Shift+F7 move container to workspace 27
-bindsym $mod+Shift+F8 move container to workspace 28
-bindsym $mod+Shift+F9 move container to workspace 29
-bindsym $mod+Shift+F10 move container to workspace 30
-bindsym $mod+Shift+F11 move container to workspace 31
-bindsym $mod+Shift+F12 move container to workspace 32
-
-bindsym Ctrl+$mod+Shift+F1 move container to workspace 31
-bindsym Ctrl+$mod+Shift+F2 move container to workspace 32
-bindsym Ctrl+$mod+Shift+F3 move container to workspace 33
-bindsym Ctrl+$mod+Shift+F4 move container to workspace 34
-bindsym Ctrl+$mod+Shift+F5 move container to workspace 35
-bindsym Ctrl+$mod+Shift+F6 move container to workspace 36
-bindsym Ctrl+$mod+Shift+F7 move container to workspace 37
-bindsym Ctrl+$mod+Shift+F8 move container to workspace 38
-bindsym Ctrl+$mod+Shift+F9 move container to workspace 39
-bindsym Ctrl+$mod+Shift+F10 move container to workspace 40
-
-
-# switch to workspace
-bindsym $workmod+grave workspace 0
-bindsym $workmod+1 workspace 1
-bindsym $workmod+2 workspace 2
-bindsym $workmod+3 workspace 3
-bindsym $workmod+4 workspace 4
-bindsym $workmod+5 workspace 5
-bindsym $workmod+6 workspace 6
-bindsym $workmod+7 workspace 7
-bindsym $workmod+8 workspace 8
-bindsym $workmod+9 workspace 9
-bindsym $workmod+0 workspace 10
-
-bindsym $workmod+F1 workspace 21
-bindsym $workmod+F2 workspace 22
-bindsym $workmod+F3 workspace 23
-bindsym $workmod+F4 workspace 24
-bindsym $workmod+F5 workspace 25
-bindsym $workmod+F6 workspace 26
-bindsym $workmod+F7 workspace 27
-bindsym $workmod+F8 workspace 28
-bindsym $workmod+F9 workspace 29
-bindsym $workmod+F10 workspace 30
+bindsym $Monster+F1 workspace 61
+bindsym $Monster+F2 workspace 62
+bindsym $Monster+F3 workspace 63
+bindsym $Monster+F4 workspace 64
+bindsym $Monster+F5 workspace 65
+bindsym $Monster+F6 workspace 66
+bindsym $Monster+F7 workspace 67
+bindsym $Monster+F8 workspace 68
+bindsym $Monster+F9 workspace 69
+bindsym $Monster+F10 workspace 70
+bindsym $Monster+F11 workspace 71
+bindsym $Monster+F12 workspace 72
 
 # move focused container to workspace
-bindsym $workmod+Shift+grave move container to workspace 0
-bindsym $workmod+Shift+1 move container to workspace 1
-bindsym $workmod+Shift+2 move container to workspace 2
-bindsym $workmod+Shift+3 move container to workspace 3
-bindsym $workmod+Shift+4 move container to workspace 4
-bindsym $workmod+Shift+5 move container to workspace 5
-bindsym $workmod+Shift+6 move container to workspace 6
-bindsym $workmod+Shift+7 move container to workspace 7
-bindsym $workmod+Shift+8 move container to workspace 8
-bindsym $workmod+Shift+9 move container to workspace 9
-bindsym $workmod+Shift+0 move container to workspace 10
+bindsym $Alt+Shift+grave move container to workspace 0
+bindsym $Alt+Shift+1 move container to workspace 1
+bindsym $Alt+Shift+2 move container to workspace 2
+bindsym $Alt+Shift+3 move container to workspace 3
+bindsym $Alt+Shift+4 move container to workspace 4
+bindsym $Alt+Shift+5 move container to workspace 5
+bindsym $Alt+Shift+6 move container to workspace 6
+bindsym $Alt+Shift+7 move container to workspace 7
+bindsym $Alt+Shift+8 move container to workspace 8
+bindsym $Alt+Shift+9 move container to workspace 9
+bindsym $Alt+Shift+0 move container to workspace 10
+bindsym $Alt+Shift+bracketleft move container to workspace 11
+bindsym $Alt+Shift+bracketright move container to workspace 12
+bindsym $Alt+Shift+backslash move container to workspace 80
 
-bindsym $workmod+Shift+F1 move container to workspace 21
-bindsym $workmod+Shift+F2 move container to workspace 22
-bindsym $workmod+Shift+F3 move container to workspace 23
-bindsym $workmod+Shift+F4 move container to workspace 24
-bindsym $workmod+Shift+F5 move container to workspace 25
-bindsym $workmod+Shift+F6 move container to workspace 26
-bindsym $workmod+Shift+F7 move container to workspace 27
-bindsym $workmod+Shift+F8 move container to workspace 28
-bindsym $workmod+Shift+F9 move container to workspace 29
-bindsym $workmod+Shift+F10 move container to workspace 30
+bindsym $Monster+Shift+1 move container to workspace 21
+bindsym $Monster+Shift+2 move container to workspace 22
+bindsym $Monster+Shift+3 move container to workspace 23
+bindsym $Monster+Shift+4 move container to workspace 24
+bindsym $Monster+Shift+5 move container to workspace 25
+bindsym $Monster+Shift+6 move container to workspace 26
+bindsym $Monster+Shift+7 move container to workspace 27
+bindsym $Monster+Shift+8 move container to workspace 28
+bindsym $Monster+Shift+9 move container to workspace 29
+bindsym $Monster+Shift+0 move container to workspace 30
+bindsym $Monster+Shift+bracketleft move container to workspace 31
+bindsym $Monster+Shift+bracketright move container to workspace 32
 
-bindsym $workmod+Right workspace next
-bindsym $workmod+Left workspace prev
+bindsym $Alt+Shift+F1 move container to workspace 41
+bindsym $Alt+Shift+F2 move container to workspace 42
+bindsym $Alt+Shift+F3 move container to workspace 43
+bindsym $Alt+Shift+F4 move container to workspace 44
+bindsym $Alt+Shift+F5 move container to workspace 45
+bindsym $Alt+Shift+F6 move container to workspace 46
+bindsym $Alt+Shift+F7 move container to workspace 47
+bindsym $Alt+Shift+F8 move container to workspace 48
+bindsym $Alt+Shift+F9 move container to workspace 49
+bindsym $Alt+Shift+F10 move container to workspace 50
+bindsym $Alt+Shift+F11 move container to workspace 51
+bindsym $Alt+Shift+F12 move container to workspace 52
+
+bindsym $Monster+Shift+F1 move container to workspace 61
+bindsym $Monster+Shift+F2 move container to workspace 62
+bindsym $Monster+Shift+F3 move container to workspace 63
+bindsym $Monster+Shift+F4 move container to workspace 64
+bindsym $Monster+Shift+F5 move container to workspace 65
+bindsym $Monster+Shift+F6 move container to workspace 66
+bindsym $Monster+Shift+F7 move container to workspace 67
+bindsym $Monster+Shift+F8 move container to workspace 68
+bindsym $Monster+Shift+F9 move container to workspace 69
+bindsym $Monster+Shift+F10 move container to workspace 70
+bindsym $Monster+Shift+F11 move container to workspace 71
+bindsym $Monster+Shift+F12 move container to workspace 72
+
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -320,33 +289,33 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-bindsym $mod+r mode "resize"
+bindsym $Alt+r mode "resize"
 
 
 # reload the configuration file
-bindsym $mod+Shift+c reload
+bindsym $Alt+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
+bindsym $Alt+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $Alt+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Shift+Return exec firefox
-bindsym $mod+Shift+plus exec dolphin
+bindsym $Alt+Return exec i3-sensible-terminal
+bindsym $Alt+Shift+Return exec firefox
+bindsym $Alt+Shift+plus exec dolphin
 
 # kill focused window
-bindsym $mod+Shift+q kill
+bindsym $Alt+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec dmenu_run
+bindsym $Alt+d exec dmenu_run
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+m exec --no-startup-id i3-dmenu-desktop
-bindsym $mod+apostrophe exec rofi -show run
-bindsym $mod+comma exec ~/.config/i3/msg.sh
+bindsym $Alt+m exec --no-startup-id i3-dmenu-desktop
+bindsym $Alt+apostrophe exec rofi -show run
+bindsym $Alt+comma exec ~/.config/i3/msg.sh
 
 
 
