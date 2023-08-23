@@ -27,7 +27,11 @@ set undodir=~/.vimundo
 "set smartcase          " if search is lowercase, ignorecase, otherwise case-sensitive
 
 set mouse=a             " enable mouse in all modes
-set ttymouse=xterm2     " hack for tmux to fix mouse movements in vim through tmux
+if has("mouse_sgr")
+    set ttymouse=sgr    " required for mouse to work correctly on macos
+else
+    set ttymouse=xterm2 " hack for tmux to fix mouse movements in vim through tmux
+end
 
 set sessionoptions=buffers,curdir,tabpages,winsize
 
