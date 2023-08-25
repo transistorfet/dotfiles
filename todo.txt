@@ -1,17 +1,19 @@
 
 * add links to references to the cheat sheets
 
+* think about changing your default terminal emulator:
+    * kitty is nice but doesn't look quite right and I don't like the cursor, also uses its own xterm-kitty profile
+    * alactritty??
+    * konsole is great for my desktop, but not great over vnc
+    * iterm2 is great for mac and nothing else
+    * stterm doesn't support scrolling
 
 TMUX:
-    * need to adjust so it works with tmux 3.0a
     * learn the extra copy paste commands
 
 
 VIM:
     * if you open a txt file, then "spell" is enabled for all files
-    * need to think about scrolling a bit more depending on how it works on Mac/iTerm2 (should shift or ctrl activate horizontal
-      scrolling, and what should the vertical scroll behaviour be with the same modified?)
-
     * can you set focus follows mouse in vim or is that only for gui?
 
     Alternate Plugins:

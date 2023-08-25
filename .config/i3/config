@@ -303,7 +303,10 @@ bindsym $Alt+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # start a terminal
 bindsym $Alt+Return exec i3-sensible-terminal
 bindsym $Alt+Shift+Return exec firefox
-bindsym $Alt+Shift+plus exec dolphin
+bindsym $Alt+plus exec dolphin
+bindsym $Monster+Return exec i3-sensible-terminal
+bindsym $Monster+Shift+Return exec firefox
+bindsym $Monster+plus exec dolphin
 
 # kill focused window
 bindsym $Alt+Shift+q kill
