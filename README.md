@@ -2,7 +2,7 @@
 Programs I Use
 --------------
 
-On Debian (desktop):
+* On Debian (desktop):
     - i3 (window manager)
     - i3status-rust (desktop status line)
     - nitrogen (x background setter)
@@ -15,19 +15,19 @@ On Debian (desktop):
     - xmms2 (music player)
     - pavucontrol (audio volumes and input switching)
 
-Remote:
+* Remote:
     - tmux
 
-On Mac (for work):
+* On Mac (for work):
     - iTerm2 (terminal emulator)
     - Hex Fiend (hex editor)
     - LICEcap (screen recorder for demos)
 
-Fonts:
+* Fonts:
     - Incosolata (konsole)
     - Overpass Mono (gvim)
 
-Additional Tools:
+* Additional Tools:
     - kicad (schematic and PCB editor)
     - okteta (hex editor)
     - tigervnc-standalone-server (remote gui)
@@ -37,8 +37,8 @@ Additional Tools:
     - wireshark
 
 
-Installing
-----------
+Some Handy Installation Commands
+--------------------------------
 
 On Debian
 ```
@@ -65,21 +65,21 @@ brew install --cask font-azeret-mono font-b612-mono font-cousine font-incosolata
 Alternate Programs To Try
 -------------------------
 
-Terminal Emulators:
-    * kitty
-        - fonts don't match other programs, but I haven't set it up properly
-    * alactritty
-    * stterm
-        - it doesn't support scrollback without a patch, and that's a critical feature for me
+* Terminal Emulators:
+    - kitty
+        * fonts don't match other programs, but I haven't set it up properly
+    - alactritty
+    - stterm
+        * it doesn't support scrollback without a patch, and that's a critical feature for me
 
-Editors:
-    * neovim
-        - last time I tried it, neovim-qt was better
-        - I still can't use the same fonts as gvim, or if I can, they look different
+* Editors:
+    - neovim
+        * last time I tried it, neovim-qt was better
+        * I still can't use the same fonts as gvim, or if I can, they look different
 
-Shells:
-    * zsh
-        - I don't like the double tab autofill behaviour and haven't tried configuring it differently
-    * fish
-        - it tries to do too much for me and can be distracting
+* Shells:
+    - zsh
+        * I don't like the double tab autofill behaviour and haven't tried configuring it differently
+    - fish
+        * it tries to do too much for me and can be distracting
 
