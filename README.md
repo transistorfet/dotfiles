@@ -24,8 +24,8 @@ Programs I Use
     - LICEcap (screen recorder for demos)
 
 * Fonts:
-    - Incosolata (konsole)
-    - Overpass Mono (gvim)
+    - [Incosolata](https://fonts.google.com/specimen/Inconsolata) (konsole)
+    - [Overpass Mono](https://fonts.google.com/specimen/Overpass+Mono) (gvim)
 
 * Additional Tools:
     - kicad (schematic and PCB editor)
@@ -43,7 +43,7 @@ Some Handy Installation Commands
 On Debian
 ```
 apt-get install i3 i3status rofi dolphin konsole vim-gtk3 vim-scripts neovim neovim-qt nitrogen net-tools netcat python3-serial tmux gxmms2 xmms2 jq
-apt-get install gcc-m68k-linux-gnu gcc-arm-none-eabi gdb-multiarch ocaml opam
+apt-get install gcc-m68k-linux-gnu gcc-arm-none-eabi gdb-multiarch ocaml opam openocd
 apt-get install kicad kicad-libraries iverilog yosys nextpnr-generic nextpnr-ice40-qt gtkwave
 apt-get install fontconfig fonts-agave fonts-ancient-scripts fonts-anonymous-pro fonts-courier-prime fonts-dejavu fonts-dejavu-extra fonts-elusive-icons fonts-ferrite-core fonts-font-awesome fonts-fork-awesome fonts-glasstty fonts-hack fonts-hermit fonts-ibm-plex fonts-inconsolata fonts-lato fonts-lobster fonts-lyx fonts-material-design-icons-iconfont fonts-materialdesignicons-webfont fonts-monofur fonts-monoid fonts-noto fonts-noto-cjk fonts-noto-cjk-extra fonts-noto-color-emoji fonts-noto-core fonts-noto-extra fonts-noto-hinted fonts-noto-mono fonts-noto-ui-core fonts-noto-ui-extra fonts-noto-unhinted fonts-opensymbol fonts-powerline fonts-proggy fonts-quicksand fonts-sil-gentium fonts-spleen fonts-staypuft fonts-symbola fonts-terminus
 mkdir ~/.vimundo
@@ -70,16 +70,23 @@ Alternate Programs To Try
         * fonts don't match other programs, but I haven't set it up properly
     - alactritty
     - stterm
-        * it doesn't support scrollback without a patch, and that's a critical feature for me
+        * it doesn't support scrollback without a patch, and that's a critical feature for me, but is otherwise really lightweight
 
 * Editors:
     - neovim
-        * last time I tried it, neovim-qt was better
-        * I still can't use the same fonts as gvim, or if I can, they look different
+        * last time I tried neovim-qt, it was close to parity for the features I notice most
+        * I still can't use the same fonts as gvim on linux, or if I can, they look different
 
 * Shells:
     - zsh
         * I don't like the double tab autofill behaviour and haven't tried configuring it differently
     - fish
         * it tries to do too much for me and can be distracting
+
+
+Additional Resources
+--------------------
+
+- https://www.codingfont.com/
+- https://www.programmingfonts.org/
 
