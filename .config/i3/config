@@ -9,10 +9,8 @@
 # layout, use the i3-config-wizard
 #
 
+exec --no-startup-id picom -b
 exec nitrogen --restore
-exec xfce4-clipman
-exec /usr/bin/python /usr/bin/deluged --port=58846 --config=/home/trans/.config/deluge
-
 
 #### KEY BINDINGS ####
 

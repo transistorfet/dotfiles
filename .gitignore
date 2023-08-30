@@ -1,1 +1,69 @@
-.*.swp 
+# Dotfiles Git Ignore
+#
+
+# Ignore all files by default
+/*
+
+# Ignore all swap files
+.*.sw?
+
+# Include files associated with this dotfiles repository
+!/.dotfiles
+!/.gitignore
+!/.gitmodules
+!/.README.md
+
+# Allow SSH public keys
+!/.ssh/id*.pub
+
+# Config files to include
+!/.Xresources
+!/.bashrc
+!/.gvim
+!/.profile
+!/.screenrc
+!/.tmux.*
+!/.vim
+!/.vimrc
+
+# But don't include vim netrwhist
+/.vim/.netrwhis*
+
+# Include only the vimundo empty file so the directory is created
+!/.vimundo
+/.vimundo/*
+!/.vimundo/empty
+
+# Include specific .config files/direcotries
+!/.config
+/.config/*
+!/.config/dolphinrc
+!/.config/fish/
+!/.config/i3/
+!/.config/i3status/
+!/.config/i3status-rust/
+!/.config/gtk*/
+!/.config/kdeglobals/
+!/.config/kicad/
+!/.config/kitty/
+!/.config/konsole/
+!/.config/lutris/
+!/.config/nitrogen/
+!/.config/nvim-qt/
+!/.config/nvim/
+!/.config/plasmarc
+!/.config/rofi/
+!/.config/xmms2/
+
+# Include specific .local files/directories
+!/.local
+/.local/*
+!/.local/share
+.local/share/*
+!/.local/share/color-schemes
+!/.local/share/i3status-rust
+!/.local/share/icons
+!/.local/share/kicad
+!/.local/share/konsole
+!/.local/share/nvim
+

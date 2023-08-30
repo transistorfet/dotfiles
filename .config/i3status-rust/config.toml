@@ -1,5 +1,8 @@
+# For i3status-rust version 0.31.9
+# Install with `cargo install i3status-rs
+#
 [icons]
-icons = "awesome"
+icons = "awesome6"
 
 [theme]
 theme = "gruvbox-dark"
@@ -20,22 +23,20 @@ alert = 5.0
 
 [[block]]
 block = "memory"
-display_type = "memory"
-format_mem = "$mem_used_percents"
-format_swap = "$swap_used_percents"
+format = " $icon $mem_used_percents "
 warning_mem = 90
 
 [[block]]
 block = "nvidia_gpu"
 interval = 2
-format = "$utilization"
+format = " $icon $utilization $temperature "
 
 [[block]]
 block = "cpu"
 interval = 2
-format = "$utilization"
+format = " $icon $utilization "
 
 [[block]]
 block = "time"
 interval = 2
-format = "%a %Y-%m-%d %H:%M:%S"
+format = " $icon $timestamp.datetime(f:'%a %Y-%m-%d %H:%M:%S') "
