@@ -9,7 +9,7 @@
 # layout, use the i3-config-wizard
 #
 
-exec --no-startup-id picom -b
+#exec --no-startup-id picom -b
 exec nitrogen --restore
 
 #### KEY BINDINGS ####

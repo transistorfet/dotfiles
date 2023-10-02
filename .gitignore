@@ -59,7 +59,7 @@
 !/.local
 /.local/*
 !/.local/share
-.local/share/*
+/.local/share/*
 !/.local/share/color-schemes
 !/.local/share/i3status-rust
 !/.local/share/icons

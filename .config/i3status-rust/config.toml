@@ -37,6 +37,12 @@ interval = 2
 format = " $icon $utilization "
 
 [[block]]
+block = "temperature"
+interval = 2
+inputs = ["Tccd1", "Tctl"]
+format = " $icon $max "
+
+[[block]]
 block = "time"
 interval = 2
 format = " $icon $timestamp.datetime(f:'%a %Y-%m-%d %H:%M:%S') "
