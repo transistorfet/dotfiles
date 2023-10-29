@@ -1,8 +1,26 @@
 
 set nocompatible
 
+"""""""""""
+" Plugins "
+"""""""""""
+
 " Activate the vim package manager, pathogen
-execute pathogen#infect()
+"execute pathogen#infect()
+
+call plug#begin()
+Plug 'scrooloose/nerdtree'
+Plug 'neovim/nvim-lspconfig'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'simnalamburt/vim-mundo'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sleuth'
+call plug#end()
+
+"""""""""""""""
+" Basic Setup "
+"""""""""""""""
 
 set encoding=utf-8
 set ff=unix

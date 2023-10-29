@@ -4,8 +4,8 @@ set nocompatible
 " Activate the vim package manager, pathogen
 execute pathogen#infect()
 
-set ff=unix
 set encoding=utf-8
+set ff=unix
 set nowrap
 behave xterm
 
@@ -17,6 +17,8 @@ set hlsearch		" highlight search terms
 set number              " show line numbers
 set showtabline=1	" only show tab bar if more than one tab
 set laststatus=2	" always show the status bar
+set noautoindent        " no auto indent
+set nohidden            " when a tab is closed, remove the buffer
 
 set backspace=indent,eol,start whichwrap+=<,>,[,]       " backspace and cursor keys wrap to previous/next line
 
@@ -40,6 +42,10 @@ let g:asyncomplete_auto_completeopt = 0         " Set completeopt such that it o
 set completeopt=menuone,noinsert
 
 "set switchbuf+=usetab,newtab    " Open a file in existing tab if already open, otherwise new tab
+
+" Cool tab completion stuff
+"set wildmenu
+"set wildmode=list:longest,full
 
 
 """""""""""
@@ -268,7 +274,6 @@ autocmd BufRead,BufNewFile *.md set spell
 
 " Sleuth disable auto indent
 let g:did_indent_on = 0
-
 
 " Enable Powerline fonts in airline
 "set rtp+=/usr/local/lib/python3.7/dist-packages/powerline/bindings/vim/

@@ -1,12 +1,9 @@
 
 * add links to references to the cheat sheets
 
-* think about changing your default terminal emulator:
-    * kitty is nice but doesn't look quite right and I don't like the cursor, also uses its own xterm-kitty profile
-    * alactritty??
-    * konsole is great for my desktop, but not great over vnc
-    * iterm2 is great for mac and nothing else
-    * stterm doesn't support scrolling
+* try using kitty as your daily terminal emulator
+* try using neovim instead of gvim
+* try using nushell instead of bash
 
 TMUX:
     * learn the extra copy paste commands
@@ -15,13 +12,8 @@ TMUX:
 VIM:
     * if you open a txt file, then "spell" is enabled for all files
     * can you set focus follows mouse in vim or is that only for gui?
+    * should you use undotree instead of mundo?
 
-    Alternate Plugins:
-        * should you use fzf instead of Ctrl-P
-        * lightline instead of airline?
-        * undotree instead of mundo?
 
 NEOVIM:
-    * GuiScrollBar needs to be properly activated
-    * window title is not the filename (NeoVim as a title is useless if I have multiple copies open)
 

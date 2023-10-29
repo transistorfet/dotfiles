@@ -1,6 +1,6 @@
 [Appearance]
 ColorScheme=Utterly-Sweet-with-Background
-Font=Inconsolata [PfEd],9,-1,5,57,0,0,0,0,0,Medium
+Font=Inconsolata Nerd Font Mono,9,-1,5,75,0,0,0,0,0,Bold
 
 [General]
 Name=WhiteOnBlack
