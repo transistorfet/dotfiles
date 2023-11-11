@@ -17,15 +17,6 @@ set hlsearch		" highlight search terms
 set number              " show line numbers
 set showtabline=1	" only show tab bar if more than one tab
 set laststatus=2	" always show the status bar
-set noautoindent        " no auto indent
-set nohidden            " when a tab is closed, remove the buffer
-
-set backspace=indent,eol,start whichwrap+=<,>,[,]       " backspace and cursor keys wrap to previous/next line
-
-set history=100		" lines of command line history to keep
-set undofile            " enable persistent undo
-set undodir=~/.vimundo
-"set backup		" keep a backup file
 "set smartcase          " if search is lowercase, ignorecase, otherwise case-sensitive
 
 set mouse=a             " enable mouse in all modes
@@ -35,13 +26,27 @@ else
     set ttymouse=xterm2 " hack for tmux to fix mouse movements in vim through tmux
 end
 
-set sessionoptions=buffers,curdir,tabpages,winsize
+set history=100		" lines of command line history to keep
+set undofile            " enable persistent undo
+set undodir=~/.vimundo
+"set backup		" keep a backup file
+
+set nohidden            " when a tab is closed, remove the buffer
+set noautoread          " do not automatically reload the file if changed on disk
+set sessionoptions=buffers,curdir,tabpages,winsize      " things to save when saving the current session
+"set switchbuf+=usetab,newtab    " Open a file in existing tab if already open, otherwise new tab
+
+set backspace=indent,eol,start whichwrap+=<,>,[,]       " backspace and cursor keys wrap to previous/next line
+
+filetype plugin on      " enable filetype plugins
+filetype indent off     " no filetype indent
+set noautoindent        " no auto indent
+set nosmartindent       " no smart indentation
+autocmd BufRead,BufNewFile *  set nosmartindent         " Disable auto indenting, even after the filetype plugin re-enables it
 
 let g:asyncomplete_auto_popup = 0               " Don't open the autocomplete until Ctrl-N is pressed
 let g:asyncomplete_auto_completeopt = 0         " Set completeopt such that it opens a menu, selects the first option, but doesn't automatically insert
 set completeopt=menuone,noinsert
-
-"set switchbuf+=usetab,newtab    " Open a file in existing tab if already open, otherwise new tab
 
 " Cool tab completion stuff
 "set wildmenu
@@ -265,7 +270,12 @@ autocmd BufRead,BufNewFile *.pyhtml set syntax=aspperl
 
 " For *.md and *.txt files, enable spell check
 autocmd BufRead,BufNewFile *.md set spell
-"autocmd BufRead,BufNewFile *.txt set spell
+
+" Fix syntax highlighting
+autocmd BufEnter * :syntax sync fromstart
+
+" Disable autocomments
+autocmd BufEnter * set formatoptions-=cro
 
 
 """""""""""""""""

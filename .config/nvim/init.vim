@@ -27,9 +27,6 @@ set ff=unix
 set nowrap
 behave xterm
 
-" backspace and cursor keys wrap to previous/next line
-"set backspace=indent,eol,start whichwrap+=<,>,[,]
-
 set title               " show filename in the window title
 set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
@@ -38,22 +35,31 @@ set hlsearch		" highlight search terms
 set number              " show line numbers
 set showtabline=1	" only show tab bar if more than one tab
 set laststatus=2	" always show the status bar
-set noautoindent        " no auto indent
-set nohidden            " when a tab is closed, remove the buffer
+"set smartcase          " if search is lowercase, ignorecase, otherwise case-sensitive
 
-set backspace=indent,eol,start whichwrap+=<,>,[,]       " backspace and cursor keys wrap to previous/next line
+set mouse=a             " enable mouse in all modes
 
 set history=100		" lines of command line history to keep
 set undofile            " enable persistent undo
 "set undodir=~/.nvimundo " (default for nvim should be ok)
 "set backup		" keep a backup file
-"set smartcase          " if search is lowercase, ignorecase, otherwise case-sensitive
 
-set mouse=a             " enable mouse in all modes
-
-set sessionoptions=buffers,curdir,tabpages,winsize
-
+set nohidden            " when a tab is closed, remove the buffer
+set noautoread          " do not automatically reload the file if changed on disk
+set sessionoptions=buffers,curdir,tabpages,winsize      " things to save when saving the current session
 "set switchbuf+=usetab,newtab    " Open a file in existing tab if already open, otherwise new tab
+
+set backspace=indent,eol,start whichwrap+=<,>,[,]       " backspace and cursor keys wrap to previous/next line
+
+filetype plugin on      " enable filetype plugins
+filetype indent off     " no filetype indent
+set noautoindent        " no auto indent
+set nosmartindent       " no smart indentation
+autocmd BufRead,BufNewFile *  set nosmartindent         " Disable auto indenting, even after the filetype plugin re-enables it
+
+" Cool tab completion stuff
+"set wildmenu
+"set wildmode=list:longest,full
 
 
 """""""""""
@@ -72,7 +78,6 @@ endfunction
 " Switch syntax highlighting on, when the terminal has colors or the gui is running
 if &t_Co > 2 || has("gui_running")
     syntax on
-    set hlsearch			" highlight search terms
     syntax sync fromstart
 
     let g:allcolors = map(split(globpath(&runtimepath . ",/usr/share/vim-scripts/color_sampler_pack/", 'colors/*.vim'), "\n"), 'fnamemodify(v:val, ":t:r")')
@@ -270,6 +275,9 @@ autocmd BufRead,BufNewFile *.js PythonTabs
 " For *.pyhtml files, treat as a HTML file
 autocmd BufRead,BufNewFile *.pyhtml set syntax=aspperl
 
+" For *.md and *.txt files, enable spell check
+autocmd BufRead,BufNewFile *.md set spell
+
 " Fix syntax highlighting
 autocmd BufEnter * :syntax sync fromstart
 
@@ -285,8 +293,7 @@ autocmd BufEnter * set formatoptions-=cro
 let g:did_indent_on = 0
 
 " Enable Powerline fonts in airline
-"set rtp+=/usr/local/lib/python3.7/dist-packages/powerline/bindings/vim/
-"let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts=1
 
 
 " Highlight lines that are too long
