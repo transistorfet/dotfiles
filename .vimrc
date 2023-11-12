@@ -266,10 +266,10 @@ autocmd BufRead,BufNewFile *.py PythonTabs
 autocmd BufRead,BufNewFile *.js PythonTabs
 
 " For *.pyhtml files, treat as a HTML file
-autocmd BufRead,BufNewFile *.pyhtml set syntax=aspperl
+autocmd BufRead,BufNewFile *.pyhtml setlocal syntax=aspperl
 
 " For *.md and *.txt files, enable spell check
-autocmd BufRead,BufNewFile *.md set spell
+autocmd BufRead,BufNewFile *.md setlocal spell
 
 " Fix syntax highlighting
 autocmd BufEnter * :syntax sync fromstart

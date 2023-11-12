@@ -56,10 +56,7 @@ filetype indent off     " no filetype indent
 set noautoindent        " no auto indent
 set nosmartindent       " no smart indentation
 autocmd BufRead,BufNewFile *  set nosmartindent         " Disable auto indenting, even after the filetype plugin re-enables it
-
-" Cool tab completion stuff
-"set wildmenu
-"set wildmode=list:longest,full
+autocmd BufEnter,FocusGained,BufEnter,FocusLost,WinLeave * checktime
 
 
 """""""""""
@@ -273,10 +270,10 @@ autocmd BufRead,BufNewFile *.py PythonTabs
 autocmd BufRead,BufNewFile *.js PythonTabs
 
 " For *.pyhtml files, treat as a HTML file
-autocmd BufRead,BufNewFile *.pyhtml set syntax=aspperl
+autocmd BufRead,BufNewFile *.pyhtml setlocal syntax=aspperl
 
 " For *.md and *.txt files, enable spell check
-autocmd BufRead,BufNewFile *.md set spell
+autocmd BufRead,BufNewFile *.md setlocal spell
 
 " Fix syntax highlighting
 autocmd BufEnter * :syntax sync fromstart

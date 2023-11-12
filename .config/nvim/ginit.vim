@@ -11,5 +11,5 @@ GuiScrollBar 1
 "set guifont=Overpass Mono:11
 "GuiFont! Overpass Mono:h11
 "GuiFont! Overpass Nerd Font Mono:h11
-GuiFont! Inconsolata Nerd Font Mono:h11:b
+GuiFont! Inconsolata Nerd Font Mono:h12:b
 
