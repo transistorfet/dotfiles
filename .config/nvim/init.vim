@@ -35,7 +35,9 @@ set hlsearch		" highlight search terms
 set number              " show line numbers
 set showtabline=1	" only show tab bar if more than one tab
 set laststatus=2	" always show the status bar
+set signcolumn=yes      " always show the sign column
 "set smartcase          " if search is lowercase, ignorecase, otherwise case-sensitive
+set belloff=            " leave the bell on for all events
 
 set mouse=a             " enable mouse in all modes
 
@@ -46,7 +48,7 @@ set undofile            " enable persistent undo
 
 set nohidden            " when a tab is closed, remove the buffer
 set noautoread          " do not automatically reload the file if changed on disk
-set sessionoptions=buffers,curdir,tabpages,winsize      " things to save when saving the current session
+"set sessionoptions=buffers,curdir,tabpages,winsize      " things to save when saving the current session
 "set switchbuf+=usetab,newtab    " Open a file in existing tab if already open, otherwise new tab
 
 set backspace=indent,eol,start whichwrap+=<,>,[,]       " backspace and cursor keys wrap to previous/next line
@@ -55,8 +57,9 @@ filetype plugin on      " enable filetype plugins
 filetype indent off     " no filetype indent
 set noautoindent        " no auto indent
 set nosmartindent       " no smart indentation
-autocmd BufRead,BufNewFile *  set nosmartindent         " Disable auto indenting, even after the filetype plugin re-enables it
+autocmd BufRead,BufNewFile *  set nosmartindent         " disable auto indenting, even after the filetype plugin re-enables it
 autocmd BufEnter,FocusGained,BufEnter,FocusLost,WinLeave * checktime
+autocmd BufEnter * set formatoptions-=cro               " disable autocomments
 
 
 """""""""""
@@ -69,6 +72,7 @@ function! ApplyCustomColors()
     if output =~ '.*Magenta.*'
         highlight Pmenu ctermbg=darkblue guibg=darkblue
     endif
+    highlight Error guibg=NONE
 endfunction
 
 
@@ -115,7 +119,8 @@ if &t_Co > 2 || has("gui_running")
     nmap <C-C><C-S> :RA<CR>
 
     call RandomColor()
-    let g:airline_theme = 'badwolf'
+    "let g:airline_theme = 'badwolf'
+    call RandomAirline()
     nmap <C-C><C-S> :AirlineTheme random<CR>
 endif
 
@@ -277,9 +282,6 @@ autocmd BufRead,BufNewFile *.md setlocal spell
 
 " Fix syntax highlighting
 autocmd BufEnter * :syntax sync fromstart
-
-" Disable autocomments
-autocmd BufEnter * set formatoptions-=cro
 
 
 """""""""""""""""

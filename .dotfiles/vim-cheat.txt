@@ -24,6 +24,9 @@ qa q @a		record changes as 'a'
 ^PgUp ^PgDwn	Next/Previous tab
 gt gT <N>gt	Next/Previous/Numbered tab
 
+gf		Goto File under cursor
+^W^F		Open file under cursor in a split
+^Wgf		Open file under cursor in a new tab
 
 [i		Display the definition of an identifier
 [d		Display the definition of a macro
