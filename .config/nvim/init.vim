@@ -172,6 +172,9 @@ imap <S-Left> <C-O>40zh
 
 " Set Copy/Cut/Paste keys depending on if the clipboard is present
 if has('clipboard')
+    " Workaround to autocopy selected text to the primary clipboard buffer
+    vmap <LeftRelease> "*ygv
+
     " Copy
     vnoremap <C-C> "+y
     vnoremap <C-Insert> "+y
