@@ -287,7 +287,7 @@ let g:did_indent_on = 0
 
 " Enable Powerline fonts in airline
 "set rtp+=/usr/local/lib/python3.7/dist-packages/powerline/bindings/vim/
-"let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts=1
 
 
 "Setup rust-analyzer

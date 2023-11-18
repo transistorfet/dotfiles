@@ -1,10 +1,10 @@
 
 * add links to references to the cheat sheets
 
-* try using kitty as your daily terminal emulator
-* try warp, wezterm, other terminal emulators
 * try using neovim instead of gvim
+* try wezterm and alacritty
 * try using nushell instead of bash
+* try sway
 
 * try using zellij instead of tmux??
 
@@ -20,10 +20,15 @@ VIM:
 
 
 NEOVIM:
-    * selecting text doesn't auto-copy to the middle click buffer like gvim does (super annoying)
-    * cursor blinks in gvim but not neovim (not sure if want or not)
+    * selecting text doesn't auto-copy to the middle click buffer like gvim does, `set guioptions+=a` (super annoying)
+    * cursor blinks in gvim but not neovim (not sure if want or not, but it should be configurable)
 
 
 NEOVIM-QT:
     * in QT the mouse doesn't change when hovering over a status bar like gvim does
+    * unable to copy command line in any way (can use terminal copy in nvim)
+
+
+comments:
+    * I don't like kitty because it doesn't have scrollbars and the developer said he didn't want it and closed the ticket right away
 

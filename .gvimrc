@@ -8,6 +8,7 @@ set guioptions-=m               " disable the menubar on gui windows
 "set guifont=Space\ Mono\ 11
 "set guifont=B612\ Mono\ 11
 "set guifont=Azeret\ Mono\ 11
-set guifont=Overpass\ Mono\ 11
+"set guifont=Overpass\ Mono\ 11
 "set guifont=Inconsolata\ SemiExpanded\ Medium\ 11
+set guifont=Inconsolata\ Nerd\ Font\ Mono\ Bold\ 12
 
