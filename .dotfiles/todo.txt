@@ -21,6 +21,7 @@ VIM:
 
 NEOVIM:
     * selecting text doesn't auto-copy to the middle click buffer like gvim does, `set guioptions+=a` (super annoying)
+    * the workaround, vmap <LeftRelease> "*ygv is yanking to both "* and "" registers, which defeats the point...
     * cursor blinks in gvim but not neovim (not sure if want or not, but it should be configurable)
 
 

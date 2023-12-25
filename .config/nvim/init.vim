@@ -82,7 +82,6 @@ if &t_Co > 2 || has("gui_running")
     syntax sync fromstart
 
     let g:allcolors = map(split(globpath(&runtimepath . ",/usr/share/vim-scripts/color_sampler_pack/", 'colors/*.vim'), "\n"), 'fnamemodify(v:val, ":t:r")')
-    let g:allairline = map(split(globpath(&runtimepath, 'bundle/vim-airline-themes/autoload/airline/themes/*.vim'), "\n"), 'fnamemodify(v:val, ":t:r")')
 
     let g:favcolors = [ 'badwolf', 'darkblue', 'desert', 'elflord', 'evening', 'flattown', 'gentooish', 'gotham', 'greenvision', 'industry', 'jellyx', 'koehler', 'leo', 'lettuce', 'lodestone', 'murphy', 'pablo', 'ron', 'slate', 'Sunburst', 'torte', 'vividchalk', 'Mustang', 'anokha', 'anotherdark', 'astroboy', 'asu1dark', 'autumnleaf', 'bigbang', 'blacksea', 'bluegreen', 'breeze', 'brookstream', 'calmar256-dark', 'candy', 'candycode', 'clarity', 'colorer', 'dante', 'darkZ', 'darkblue2', 'darkbone', 'darkburn', 'darkslategray', 'darkspectrum', 'dejavu', 'desert256', 'desertEx', 'dusk', 'dw_blue', 'dw_green', 'dw_orange', 'dw_purple', 'dw_red', 'dw_yellow', 'earendel', 'ekvoli', 'fnaqevan', 'freya', 'fruity', 'fu', 'golden', 'guardian', 'herald', 'inkpot', 'jammy', 'jellybeans', 'kellys', 'liquidcarbon', 'manuscript', 'marklar', 'maroloccio', 'masmed', 'matrix', 'metacosm', 'midnight2', 'molokai', 'moss', 'motus', 'navajo-night', 'neon', 'neverness', 'night', 'night_vision', 'nightshimmer', 'no_quarter', 'northland', 'oceanblack', 'oceandeep', 'railscasts', 'rdark', 'relaxedgreen', 'rootwater', 'sea', 'settlemyer', 'softblue', 'sorcerer', 'synic', 'tabula', 'tango', 'tango2', 'tesla', 'tir_black', 'twilight', 'two2tango', 'vibrantink', 'vimhut', 'wombat', 'wuye', 'xoria256', 'zenburn', 'zendnb', 'zmrok' ]
     let g:colors = g:favcolors
@@ -112,15 +111,8 @@ if &t_Co > 2 || has("gui_running")
     command PC call ColorPrev()
     nmap <C-C><C-P> :PC<CR>
 
-    function! RandomAirline()
-        let g:airline_theme = get(g:allairline, system('echo $RANDOM') % len(g:allairline))
-    endfunction
-    command RA call RandomAirline()
-    nmap <C-C><C-S> :RA<CR>
-
     call RandomColor()
-    "let g:airline_theme = 'badwolf'
-    call RandomAirline()
+    "call RandomAirline()
     nmap <C-C><C-S> :AirlineTheme random<CR>
 endif
 
@@ -173,7 +165,7 @@ imap <S-Left> <C-O>40zh
 " Set Copy/Cut/Paste keys depending on if the clipboard is present
 if has('clipboard')
     " Workaround to autocopy selected text to the primary clipboard buffer
-    vmap <LeftRelease> "*ygv
+    "vmap <LeftRelease> "*ygv
 
     " Copy
     vnoremap <C-C> "+y
@@ -283,8 +275,9 @@ autocmd BufRead,BufNewFile *.pyhtml setlocal syntax=aspperl
 " For *.md and *.txt files, enable spell check
 autocmd BufRead,BufNewFile *.md setlocal spell
 
+" TODO I don't think this is needed anymore, and might be causing problems on startup
 " Fix syntax highlighting
-autocmd BufEnter * :syntax sync fromstart
+"autocmd BufEnter * :syntax sync fromstart
 
 
 """""""""""""""""
@@ -313,18 +306,9 @@ let g:airline_powerline_fonts=1
 "set rtp+=/usr/local/lib/python3.7/dist-packages/powerline/bindings/vim/
 "let g:airline_powerline_fonts=1
 
-
-"Setup rust-analyzer
-"if executable('rust-analyzer')
-"  au User lsp_setup call lsp#register_server({
-"        \   'name': 'Rust Language Server',
-"        \   'cmd': {server_info->['rust-analyzer']},
-"        \   'whitelist': ['rust'],
-"        \ })
-"  set signcolumn=yes
-"endif
-
 lua require'lspconfig'.rust_analyzer.setup({})
+lua require'lspconfig'.ccls.setup({})
+lua require'lspconfig'.hls.setup({})
 
 if !empty(glob("~/.vimrc.local"))
     source ~/.vimrc.local

@@ -49,7 +49,7 @@ let g:asyncomplete_auto_completeopt = 0         " Set completeopt such that it o
 set completeopt=menuone,noinsert
 
 " Cool tab completion stuff
-"set wildmenu
+set wildmenu
 "set wildmode=list:longest,full
 
 
@@ -300,10 +300,36 @@ if executable('rust-analyzer')
   "set signcolumn=yes
 endif
 
+" Register ccls C++ lanuage server.
+if executable('ccls')
+   au User lsp_setup call lsp#register_server({
+      \ 'name': 'ccls',
+      \ 'cmd': {server_info->['ccls']},
+      \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
+      \ 'initialization_options': {'cache': {'directory': expand('~/.cache/ccls') }},
+      \ 'allowlist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
+      \ })
+endif
+
+" Register ccls haskell lanuage server.
+if executable('haskell-language-server-wrapper')
+    au User lsp_setup call lsp#register_server({
+        \ 'name': 'haskell-language-server-wrapper',
+        \ 'cmd': {server_info->['haskell-language-server-wrapper', '--lsp']},
+        \ 'root_uri':{server_info->lsp#utils#path_to_uri(
+        \     lsp#utils#find_nearest_parent_file_directory(
+        \         lsp#utils#get_buffer_path(),
+        \         ['.cabal', 'stack.yaml', 'cabal.project', 'package.yaml', 'hie.yaml', '.git'],
+        \     ))},
+        \ 'whitelist': ['haskell', 'lhaskell'],
+        \ })
+endif
+
 function! s:on_lsp_buffer_enabled() abort
     setlocal signcolumn=yes
     if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
     nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gD <plug>(lsp-document-diagnostics)
     nmap <buffer> gs <plug>(lsp-document-symbol-search)
     nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
     nmap <buffer> gr <plug>(lsp-references)
@@ -315,6 +341,10 @@ function! s:on_lsp_buffer_enabled() abort
     nmap <buffer> K <plug>(lsp-hover)
 
     let g:lsp_format_sync_timeout = 1000
+
+    let g:lsp_diagnostics_virtual_text_enabled = 1
+    let g:lsp_diagnostics_virtual_text_prefix = " ‣ "
+    let g:lsp_diagnostics_virtual_text_align = "right"
 endfunction
 
 augroup lsp_install

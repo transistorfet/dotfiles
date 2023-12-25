@@ -34,6 +34,7 @@ QT_QPA_PLATFORMTHEME=kde
 export QT_QPA_PLATFORMTHEME
 
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.ghcup/bin:$PATH"
 
 # opam configuration
 test -r /home/trans/.opam/opam-init/init.sh && . /home/trans/.opam/opam-init/init.sh > /dev/null 2> /dev/null || true
