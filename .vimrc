@@ -2,7 +2,24 @@
 set nocompatible
 
 " Activate the vim package manager, pathogen
-execute pathogen#infect()
+"execute pathogen#infect()
+
+call plug#begin()
+Plug 'prabirshrestha/vim-lsp'
+Plug 'prabirshrestha/asyncomplete.vim'
+Plug 'prabirshrestha/asyncomplete-tags.vim'
+Plug 'prabirshrestha/asyncomplete-lsp.vim'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'scrooloose/nerdtree'
+Plug 'simnalamburt/vim-mundo'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-sleuth'
+call plug#end()
+
+"""""""""""""""
+" Basic Setup "
+"""""""""""""""
 
 set encoding=utf-8
 set ff=unix
@@ -73,7 +90,7 @@ if &t_Co > 2 || has("gui_running")
     syntax sync fromstart
 
     let g:allcolors = map(split(globpath(&runtimepath . ",/usr/share/vim-scripts/color_sampler_pack/", 'colors/*.vim'), "\n"), 'fnamemodify(v:val, ":t:r")')
-    let g:allairline = map(split(globpath(&runtimepath, 'bundle/vim-airline-themes/autoload/airline/themes/*.vim'), "\n"), 'fnamemodify(v:val, ":t:r")')
+    let g:allairline = map(split(globpath(&runtimepath, 'plugged/vim-airline-themes/autoload/airline/themes/*.vim'), "\n"), 'fnamemodify(v:val, ":t:r")')
 
     let g:favcolors = [ 'badwolf', 'darkblue', 'desert', 'elflord', 'evening', 'flattown', 'gentooish', 'gotham', 'greenvision', 'industry', 'jellyx', 'koehler', 'leo', 'lettuce', 'lodestone', 'murphy', 'pablo', 'ron', 'slate', 'Sunburst', 'torte', 'vividchalk', 'mustang', 'anokha', 'anotherdark', 'astroboy', 'asu1dark', 'autumnleaf', 'bigbang', 'blacksea', 'bluegreen', 'breeze', 'brookstream', 'calmar256-dark', 'candy', 'candycode', 'clarity', 'colorer', 'dante', 'darkZ', 'darkblue2', 'darkbone', 'darkburn', 'darkslategray', 'darkspectrum', 'dejavu', 'desert256', 'desertEx', 'dusk', 'dw_blue', 'dw_green', 'dw_orange', 'dw_purple', 'dw_red', 'dw_yellow', 'earendel', 'ekvoli', 'fnaqevan', 'freya', 'fruity', 'fu', 'golden', 'guardian', 'herald', 'inkpot', 'jammy', 'jellybeans', 'kellys', 'liquidcarbon', 'manuscript', 'marklar', 'maroloccio', 'masmed', 'matrix', 'metacosm', 'midnight2', 'molokai', 'moss', 'motus', 'navajo-night', 'neon', 'neverness', 'night', 'night_vision', 'nightshimmer', 'no_quarter', 'northland', 'oceanblack', 'oceandeep', 'railscasts', 'rdark', 'relaxedgreen', 'rootwater', 'sea', 'settlemyer', 'softblue', 'sorcerer', 'synic', 'tabula', 'tango', 'tango2', 'tesla', 'tir_black', 'twilight', 'two2tango', 'vibrantink', 'vimhut', 'wombat', 'wuye', 'xoria256', 'zenburn', 'zendnb', 'zmrok' ]
     let g:colors = g:favcolors
@@ -342,9 +359,10 @@ function! s:on_lsp_buffer_enabled() abort
 
     let g:lsp_format_sync_timeout = 1000
 
-    let g:lsp_diagnostics_virtual_text_enabled = 1
+    let g:lsp_diagnostics_virtual_text_enabled = 0
     let g:lsp_diagnostics_virtual_text_prefix = " ‣ "
     let g:lsp_diagnostics_virtual_text_align = "right"
+    let g:lsp_diagnostics_virtual_text_wrap = "truncate"
 endfunction
 
 augroup lsp_install
