@@ -15,6 +15,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'simnalamburt/vim-mundo'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sleuth'
+Plug 'thinca/vim-localrc'
 call plug#end()
 
 """""""""""""""

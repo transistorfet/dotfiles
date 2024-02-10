@@ -27,8 +27,9 @@
 !/.vim
 !/.vimrc
 
-# But don't include vim netrwhist
+# But don't include vim netrwhist or plugins install dir
 /.vim/.netrwhis*
+/.vim/plugged/
 
 # Include only the vimundo empty file so the directory is created
 !/.vimundo
