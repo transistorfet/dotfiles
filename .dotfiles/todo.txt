@@ -1,7 +1,27 @@
 
+* text file managers to try:
+    - broot
+    - xplr
+    - nnn
+    - ranger
+    - mc
+    - lf
+    - vifm
+    - bt
+    - lfm
+    - wcm
+
+    - clifm
+	- couldn't get it to compile yet
+    - yazi
+	- I want to like it, but the d for delete is too easy for me to accidentally press, and it doesn't prompt on delete.  Might be configurable
+	- it's vim-like but you're always in insert mode instead of command mode!?! it's kind of infuriating
+	- it does have nice previews though, and emoji
+
 * add links to references to the cheat sheets
 
 * try using neovim instead of gvim
+* try using Zed instead of gvim
 * try wezterm and alacritty
 * try using nushell instead of bash
 * try sway
@@ -30,6 +50,9 @@ NEOVIM-QT:
     * unable to copy command line in any way (can use terminal copy in nvim)
 
 
-comments:
+NUSHELL:
+    * the tripping point for me so far has been a lack of bash completion support, so apt-get install in particular doesn't autocomplete
+
+KITTY:
     * I don't like kitty because it doesn't have scrollbars and the developer said he didn't want it and closed the ticket right away
 

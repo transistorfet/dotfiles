@@ -35,12 +35,15 @@ format = " $icon $utilization $temperature "
 block = "cpu"
 interval = 2
 format = " $icon $utilization "
+info_cpu = 45.0
 
 [[block]]
 block = "temperature"
 interval = 2
 inputs = ["Tccd1", "Tctl"]
 format = " $icon $max "
+idle = 55.0
+info = 65.0
 
 [[block]]
 block = "time"
