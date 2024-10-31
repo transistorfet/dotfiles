@@ -7,3 +7,5 @@
 	ff = only
 [init]
 	defaultBranch = main
+[submodule]
+	recurse = true
