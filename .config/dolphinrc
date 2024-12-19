@@ -1,5 +1,5 @@
 [$Version]
-update_info=dolphin_detailsmodesettings.upd:rename-leading-padding
+update_info=dolphin_detailsmodesettings.upd:rename-leading-padding,dolphin_detailsmodesettings.upd:move-content-display
 
 [Desktop Entry]
 DefaultProfile=WhiteOnBlack.profile
@@ -23,10 +23,13 @@ ViewPropsTimestamp=2021,10,4,16,16,22
 [KFileDialog Settings]
 Places Icons Auto-resize=false
 Places Icons Static Size=22
+Recent Files[$e]=bddjsMD.png,file:$HOME/misc/Space/bddjsMD.jpg,file:$HOME/misc/Space/bddjsMD.png
+Recent URLs[$e]=file:$HOME/misc/Space/,file:$HOME/
+detailViewIconSize=16
 
 [KPropertiesDialog]
-3 screens: Height=450
-3 screens: Width=385
+3 screens: Height=603
+3 screens: Width=412
 DP-0 DP-2 DP-4 Height 1920x1080=446
 DP-0 DP-2 DP-4 Height 1920x1080 DP-0=603
 DP-0 DP-2 DP-4 Width 1920x1080=404
@@ -48,4 +51,4 @@ History=gvim,ghex,kicad,ghex\\\\,okteta
 Plugins=audiothumbnail,comicbookthumbnail,djvuthumbnail,ebookthumbnail,exrthumbnail,fontthumbnail,imagethumbnail,jpegthumbnail,kraorathumbnail,windowsexethumbnail,windowsimagethumbnail,opendocumentthumbnail,svgthumbnail,webarchivethumbnail
 
 [Search]
-Location=Everywhere
+What=Content

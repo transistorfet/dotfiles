@@ -117,3 +117,5 @@ fi
 if [ -f ~/.bashrc_local ]; then
     . ~/.bashrc_local
 fi
+
+source /home/trans/.config/broot/launcher/bash/br

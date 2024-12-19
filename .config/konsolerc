@@ -21,23 +21,23 @@ RememberWindowSize=false
 
 [MainWindow]
 1920x1080 screen: Height=1044
-1920x1080 screen: Width=574
-1920x1080 screen: XPosition=3840
+1920x1080 screen: Width=1920
+1920x1080 screen: XPosition=4802
 1920x1080 screen: YPosition=16
 2 screens: Height=1044
-2 screens: Width=574
-2 screens: XPosition=3840
+2 screens: Width=1920
+2 screens: XPosition=4482
 2 screens: YPosition=16
 3 screens: Height=1044
 3 screens: Width=1920
-3 screens: XPosition=7680
+3 screens: XPosition=3840
 3 screens: YPosition=16
 :0.0 Height 1920x1080=1044
 :0.0 Height 1920x1080 :0.0=513
 :0.0 Width 1920x1080=958
 :0.0 Width 1920x1080 :0.0=958
 DP-0=DP-0
-DP-0 DP-2 DP-4=DP-2
+DP-0 DP-2 DP-4=DP-0
 DP-0 DP-2 DP-4 Height 1920x1080=1044
 DP-0 DP-2 DP-4 Height 1920x1080 DP-0=1044
 DP-0 DP-2 DP-4 Height 1920x1080 DP-2=1044
@@ -163,7 +163,6 @@ DP-4 Height 1920x1080 DP-4=513
 DP-4 Width 1920x1080=958
 DP-4 Width 1920x1080 DP-4=958
 MenuBar=Disabled
-State=AAAA/wAAAAD9AAAAAQAAAAAAAAEQAAAD+PwCAAAAAvsAAAAcAFMAUwBIAE0AYQBuAGEAZwBlAHIARABvAGMAawAAAAAcAAAD+AAAAREBAAAD+wAAACIAUQB1AGkAYwBrAEMAbwBtAG0AYQBuAGQAcwBEAG8AYwBrAAAAAAD/////AAABeQEAAAMAAAeAAAAEFAAAAAQAAAAEAAAACAAAAAj8AAAAAQAAAAIAAAACAAAAFgBtAGEAaQBuAFQAbwBvAGwAQgBhAHIAAAAAAP////8AAAAAAAAAAAAAABwAcwBlAHMAcwBpAG8AbgBUAG8AbwBsAGIAYQByAAAABTf/////AAAAAAAAAAA=
 StatusBar=Disabled
 ToolBarsMovable=Disabled
 

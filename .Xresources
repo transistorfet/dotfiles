@@ -5,6 +5,7 @@ Xft.rgba: rgb
 Xft.autohint: false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
+Xcursor.theme: Sweet-cursors
 
 *background:            #272827
 *foreground:            #657b83

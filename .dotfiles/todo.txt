@@ -1,22 +1,32 @@
 
 * text file managers to try:
-    - broot
-    - xplr
-    - nnn
     - ranger
+	- ranger and yazi have a similar interface/ui (which I like, even though it's not treeview)
+    - broot
+    - nnn
+	- by default it's using the gnome file associations, which are different from the kde ones I use.  Not sure if this is configurable
     - mc
-    - lf
     - vifm
-    - bt
-    - lfm
-    - wcm
 
-    - clifm
-	- couldn't get it to compile yet
+    - lf
+
     - yazi
 	- I want to like it, but the d for delete is too easy for me to accidentally press, and it doesn't prompt on delete.  Might be configurable
 	- it's vim-like but you're always in insert mode instead of command mode!?! it's kind of infuriating
 	- it does have nice previews though, and emoji
+    - bt
+	- simple, but I do like the treeview
+	- still early development, no mouse support atm
+
+    - xplr
+	- it's a shell integration, it just returns a path.  I don't think I have it installed correctly
+    - clifm
+	- couldn't get it to compile yet
+    - lfm
+	- not maintained anymore?
+    - wcm
+	- segfaults
+
 
 * add links to references to the cheat sheets
 

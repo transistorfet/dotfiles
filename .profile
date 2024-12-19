@@ -8,6 +8,16 @@
 # for ssh logins, install and configure the libpam-umask package.
 #umask 022
 
+# yazi integration
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
+
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
@@ -30,8 +40,7 @@ fi
 # Machine-Specific Settings
 ###
 
-QT_QPA_PLATFORMTHEME=kde
-export QT_QPA_PLATFORMTHEME
+export QT_QPA_PLATFORMTHEME=kde
 
 export PATH="$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.ghcup/bin:$PATH"
