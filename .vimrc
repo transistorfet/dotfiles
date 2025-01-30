@@ -68,7 +68,7 @@ set completeopt=menuone,noinsert
 
 " Cool tab completion stuff
 set wildmenu
-"set wildmode=list:longest,full
+set wildmode=list:longest,full
 
 
 """""""""""
@@ -324,7 +324,7 @@ if executable('ccls')
    au User lsp_setup call lsp#register_server({
       \ 'name': 'ccls',
       \ 'cmd': {server_info->['ccls']},
-      \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), 'compile_commands.json'))},
+      \ 'root_uri': {server_info->lsp#utils#path_to_uri(lsp#utils#find_nearest_parent_file_directory(lsp#utils#get_buffer_path(), ['.ccls', 'compile_commands.json']))},
       \ 'initialization_options': {'cache': {'directory': expand('~/.cache/ccls') }},
       \ 'allowlist': ['c', 'cpp', 'objc', 'objcpp', 'cc'],
       \ })
@@ -361,7 +361,7 @@ function! s:on_lsp_buffer_enabled() abort
 
     let g:lsp_format_sync_timeout = 1000
 
-    let g:lsp_diagnostics_virtual_text_enabled = 0
+    let g:lsp_diagnostics_virtual_text_enabled = 1
     let g:lsp_diagnostics_virtual_text_prefix = " ‣ "
     let g:lsp_diagnostics_virtual_text_align = "right"
     let g:lsp_diagnostics_virtual_text_wrap = "truncate"
